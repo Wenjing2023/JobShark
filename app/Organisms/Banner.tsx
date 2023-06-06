@@ -1,9 +1,11 @@
+import { ReactNode } from "react";
 import BurgerMenu from "../Molecules/BurgerMenu";
+import TextInput from "../Atoms/TextInput";
 
 const Banner = () => {
     return ( <>
     <BurgerMenu />
-    <h1>hi</h1>
+    <TextInput placeholder="Search"/>
     </> );
 }
  

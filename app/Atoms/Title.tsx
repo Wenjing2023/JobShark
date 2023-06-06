@@ -1,8 +1,8 @@
 
-interface TitleProps{
+type TitleProps = {
     text: String;
 }
-const Title:React.FC<TitleProps> = ({text}) => {
+const Title = ({text}:TitleProps) => {
     return ( <>
     <h2 className='text-jaws-black text-sm '> {text}</h2>
     </> );

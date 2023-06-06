@@ -1,13 +1,17 @@
-"use client";
-import * as React from "react";
-import { useState } from "react";
+interface TextInputProps {
+    placeholder: string;
+}
 
-const TextInput = () => {
-  return (
-    <>
-      
-    </>
-  );
+const TextInput = ({ placeholder }: TextInputProps) => {
+    return (
+        <>
+            <input
+                type="text"
+                className="outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
+                placeholder={placeholder}
+            ></input>
+        </>
+    );
 };
 
 export default TextInput;
