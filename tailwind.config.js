@@ -15,7 +15,8 @@ module.exports = {
       colors: {
         'jaws-blue': '#3943B7',
         'jaws-white': '#F4F4F4',
-        'jaws-black':'#010101'
+        'jaws-black':'#010101',
+        'jaws-light-blue': '#525EE8'
       },
     },
   },
