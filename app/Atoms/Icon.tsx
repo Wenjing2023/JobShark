@@ -87,10 +87,15 @@ const icons = [MAGNIFYING_ICON, MENU_ICON, ADD_ICON, SAVE_ICON, SAVED_ICON];
 
 interface IconProps {
   iconKind: IconKind;
+  onClick:()=> void;
 }
 
-const Icon = ({ iconKind }: IconProps) => {
-  return <>{icons[iconKind]}</>;
+const Icon = ({ iconKind, onClick }: IconProps) => {
+  return <>
+  <div onClick={onClick}>
+  {icons[iconKind]}
+  </div>
+  </>;
 };
 
 export default Icon;
