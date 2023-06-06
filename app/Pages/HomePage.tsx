@@ -1,7 +1,11 @@
+'use client';
 import * as React from "react";
 import PageTemplate from "../Templates/PageTemplate";
 import Schedule from "../Organisms/Schedule";
 import Button from "../Atoms/Button";
+import dynamic from "next/dynamic";
+
+const Toggle = dynamic(() => import('../Atoms/Toggle'), { ssr:false });
 
 const HomePage = () => {
   return (
@@ -11,6 +15,7 @@ const HomePage = () => {
         <div className="container mx-auto"></div>
         <Schedule />
         <Button buttonText="click me"/>
+        <Toggle filterText="toggle"/>
       </PageTemplate>
     </>
   );
