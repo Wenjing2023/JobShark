@@ -9,6 +9,7 @@ const Banner = () => {
     <Icon iconKind={IconKind.Search} />
     <Icon iconKind={IconKind.Add} />
     <Icon iconKind={IconKind.Save} />
+    <Icon iconKind={IconKind.Saved} />
 
     <TextInput placeholder="Search"/>
     </> );
