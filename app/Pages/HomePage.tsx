@@ -5,6 +5,7 @@ import Head from "next/head";
 import BurgerMenu from "../Molecules/BurgerMenu";
 import PageTemplate from "../Templates/PageTemplate";
 import Schedule from "../Organisms/Schedule";
+import Button from "../Atoms/Button";
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       
         <div className="container mx-auto"></div>
         <Schedule />
+        <Button buttonText="click me"/>
       </PageTemplate>
     </>
   );
