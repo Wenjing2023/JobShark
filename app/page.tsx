@@ -1,5 +1,6 @@
-import Homepage from "./Pages/Homepage";
+
 import Link from "next/link"
+import HomePage from "./Pages/HomePage";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
         >
           New
         </Link> */}
-        <Homepage />
+        <HomePage />
     
     </>
   );

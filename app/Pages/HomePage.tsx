@@ -6,7 +6,7 @@ import BurgerMenu from "../Molecules/BurgerMenu";
 import PageTemplate from "../Templates/PageTemplate";
 import Schedule from "../Organisms/Schedule";
 
-const Homepage = () => {
+const HomePage = () => {
   return (
     <>
       <PageTemplate>
@@ -18,4 +18,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomePage;
