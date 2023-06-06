@@ -1,3 +1,4 @@
+import TextInput from "../Atoms/TextInput";
 import Banner from "../Organisms/Banner";
 import Footer from "../Organisms/Footer";
 import Head from "next/head";
