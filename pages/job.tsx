@@ -1,7 +1,7 @@
 const Job = () => {
     return ( 
         <>
-        <h1>Job Yoooo</h1>
+        <h1>Job Yooo</h1>
         </>
      );
 }
