@@ -88,7 +88,7 @@ declare module "next/link" {
   export interface LinkProps
     extends Omit<NextLinkProps, "href" | "locale">,
       AnchorHTMLAttributes<HTMLAnchorElement> {
-    href: Route | StaticRoute | Omit<Route, "pathname">
+    href: "/" | StaticRoute | Omit<StaticRoute, "pathname">
     locale?: false;
   }
 
