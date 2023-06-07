@@ -3,7 +3,7 @@ import { ReactNode, useState } from "react";
 import TextInput from "../atoms/textinput";
 import Icon from "../atoms/icon";
 import SideMenu from "./sidemenu";
-import IconKind from "@/app/iconkind";
+import IconKind from "../enums/iconkind";
 
 
 
