@@ -19,7 +19,7 @@ const HomePage = () => {
         <Schedule />
         <Button buttonText="click me"/>
         <Toggle filterText="toggle"/>
-        <Link href="/api/auth/login">Login</Link>
+
       </PageTemplate>
     </>
   );
