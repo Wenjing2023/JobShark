@@ -1,7 +1,7 @@
 const Job = () => {
     return ( 
         <>
-        <h1>I'm a job!</h1>
+        <h1>`I'm a job!`</h1>
         </>
      );
 }
