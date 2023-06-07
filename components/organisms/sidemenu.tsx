@@ -1,4 +1,6 @@
-import Title from "../Atoms/Title";
+import Link from 'next/link';
+
+import Title from "../atoms/title";
 interface SideMenuProps{
     isMenuOpen: boolean
 }
@@ -12,13 +14,14 @@ const SideMenu = ({isMenuOpen}: SideMenuProps) => {
     <nav >
         <ul>
             <li>
-                <p>Home</p>
+                <p><Link href="/">Home</Link></p>
             </li>
             <li>
-                <p>Profile</p>
+                <p>
+                    <Link href="/profile">Profile</Link></p>
             </li>
             <li>
-                <p>Jobs</p>
+                    <Link href="/myjobs">Jobs</Link>
             </li>
         </ul>
     </nav>

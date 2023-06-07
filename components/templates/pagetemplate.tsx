@@ -1,7 +1,10 @@
-import TextInput from "../Atoms/TextInput";
-import Banner from "../Organisms/Banner";
-import Footer from "../Organisms/Footer";
+import TextInput from "../atoms/textinput";
+import Banner from "../organisms/banner";
+import Footer from "../organisms/footer";
 import Head from "next/head";
+import 'tailwindcss/tailwind.css';
+
+
 
 interface Props {
   children: any;

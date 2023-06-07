@@ -1,9 +1,11 @@
 "use client"
 import { ReactNode, useState } from "react";
-import TextInput from "../Atoms/TextInput";
-import Icon from "../Atoms/Icon";
-import IconKind from "../IconKind";
-import SideMenu from "./SideMenu";
+import TextInput from "../atoms/textinput";
+import Icon from "../atoms/icon";
+import SideMenu from "./sidemenu";
+import IconKind from "../enums/iconkind";
+
+
 
 const Banner = () => {
 
