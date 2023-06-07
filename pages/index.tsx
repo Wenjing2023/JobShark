@@ -1,11 +1,13 @@
 'use client';
 import * as React from "react";
-import PageTemplate from "../Templates/PageTemplate";
-import Schedule from "../Organisms/Schedule";
-import Button from "../Atoms/Button";
+import PageTemplate from "../components/templates/pagetemplate";
+import Schedule from "../components/organisms/schedule";
+import Button from "../components/atoms/button";
 import dynamic from "next/dynamic";
 
-const Toggle = dynamic(() => import('../Atoms/Toggle'), { ssr:false });
+
+
+const Toggle = dynamic(() => import('../components/atoms/toggle'), { ssr:false });
 
 const HomePage = () => {
   return (
