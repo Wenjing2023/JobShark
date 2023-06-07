@@ -4,6 +4,7 @@ import PageTemplate from "../components/templates/pagetemplate";
 import Schedule from "../components/organisms/schedule";
 import Button from "../components/atoms/button";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 
 
@@ -18,7 +19,7 @@ const HomePage = () => {
         <Schedule />
         <Button buttonText="click me"/>
         <Toggle filterText="toggle"/>
-        <a href="/api/auth/login">Login</a>
+        <Link href="/api/auth/login">Login</Link>
       </PageTemplate>
     </>
   );
