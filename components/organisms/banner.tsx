@@ -2,7 +2,7 @@
 import { ReactNode, useState } from "react";
 import TextInput from "../atoms/textinput";
 import Icon from "../atoms/icon";
-import IconKind from "../../app/iconkind";
+import IconKind from "@/app/iconkind";
 import SideMenu from "./sidemenu";
 
 
