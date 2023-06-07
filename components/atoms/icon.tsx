@@ -1,4 +1,4 @@
-import IconKind from "../../app/IconKind";
+import IconKind from "../../app/iconkind";
 
 const MAGNIFYING_ICON = (
   <svg
