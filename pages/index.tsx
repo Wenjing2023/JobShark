@@ -5,12 +5,33 @@ import Schedule from "../components/organisms/schedule";
 import Button from "../components/atoms/button";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useUser } from '@auth0/nextjs-Auth0/client';
+
 
 
 
 const Toggle = dynamic(() => import('../components/atoms/toggle'), { ssr:false });
 
+interface User {
+  name: string;
+}
+
 const HomePage = () => {
+  const { user, error, isLoading } = useUser();
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsLoggedIn(!!user);
+  }, [user]);
+
+  const handleLogout = () => {
+    window.location.href = '/api/auth/logout';
+  };
+
+  console.log(user);
+
+
+
   return (
     <>
       <PageTemplate>
@@ -19,7 +40,15 @@ const HomePage = () => {
         <Schedule />
         <Button buttonText="click me"/>
         <Toggle filterText="toggle"/>
-        <a href="/api/auth/login">Login</a>
+        {isLoggedIn? (
+          <>
+          <h3>Welcome {user?.name}!</h3>
+          <button onClick={handleLogout}>Logout</button>
+          </>
+        ): (
+          <a href="/api/auth/login">Login</a>
+        )}
+        
       </PageTemplate>
     </>
   );
