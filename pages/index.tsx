@@ -5,7 +5,7 @@ import Schedule from "../components/organisms/schedule";
 import Button from "../components/atoms/button";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useUser } from '@auth0/nextjs-Auth0/client';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 
 
