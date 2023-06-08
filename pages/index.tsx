@@ -11,6 +11,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 
 
+
 const Toggle = dynamic(() => import('../components/atoms/toggle'), { ssr:false });
 
 interface User {
@@ -49,7 +50,6 @@ const HomePage = () => {
         ): (
           <a href="/api/auth/login">Login</a>
         )}
-        
       </PageTemplate>
     </>
   );
