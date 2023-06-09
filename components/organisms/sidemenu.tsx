@@ -23,7 +23,7 @@ const SideMenu = ({ isMenuOpen }: SideMenuProps) => {
             </li>
             <li>
               <p>
-                <Link href="/users/profile">Profile</Link>
+                <Link href="/profile">Profile</Link>
               </p>
             </li>
             <li>
