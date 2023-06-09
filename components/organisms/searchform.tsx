@@ -23,14 +23,14 @@ const SearchForm = () => {
 
         <div className="flex justify-between">
           <MenuSelect
-            lableText="Job type"
+            lableText="Job type:"
             option1="full-time"
             option2="part-time"
             option3="temporary"
             option4="permanate"
           />
           <MenuSelect
-            lableText="Date posted"
+            lableText="Date posted:"
             option1="Last 24 hours"
             option2="Last 3 days"
             option3="Last 7 days"
@@ -38,7 +38,7 @@ const SearchForm = () => {
           />
 
           <MenuSelect
-            lableText="Salary estimated from"
+            lableText="Salary estimated from:"
             option1="£20,000"
             option2="£30,000"
             option3="£40,000"
