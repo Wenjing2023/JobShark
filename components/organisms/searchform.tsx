@@ -1,3 +1,4 @@
+import CheckBox from "../atoms/checkbox";
 import Icon from "../atoms/icon";
 import TextInput from "../atoms/textinput";
 import IconKind from "../enums/iconkind";
@@ -43,6 +44,7 @@ const SearchForm = () => {
             option3="£40,000"
             option4="£50,000"
           />
+          <CheckBox checkboxText="Work from home" />
         </div>
       </div>
     </>
