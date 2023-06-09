@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import MyJobs from "./myjobs";
+import Title from "@/components/atoms/title";
 
 
 
@@ -36,6 +37,7 @@ const HomePage = () => {
   return (
     <>
       <PageTemplate>
+
       
         <div className="container mx-auto"></div>
 
@@ -49,6 +51,7 @@ const HomePage = () => {
         ): (
           <a href="/api/auth/login">Login</a>
         )}
+        <Title text="My Schedule"/>
         <Schedule />  
       </PageTemplate>
     </>
