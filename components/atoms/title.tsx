@@ -4,7 +4,7 @@ type TitleProps = {
 }
 const Title = ({text}:TitleProps) => {
     return ( <>
-    <h2 className='text-jaws-black text-sm '> {text}</h2>
+    <h2 className='text-jaws-black text-xl text-center'> {text}</h2>
     </> );
 }
  
