@@ -83,19 +83,83 @@ const SAVED_ICON = (
   </svg>
 );
 
-const icons = [MAGNIFYING_ICON, MENU_ICON, ADD_ICON, SAVE_ICON, SAVED_ICON];
+const LOCATION_ICON = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+    />
+  </svg>
+);
+
+const CHECKED_ICON = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.5 12.75l6 6 9-13.5"
+    />
+  </svg>
+);
+
+const UP_DOWN_ICON = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+    />
+  </svg>
+);
+const icons = [
+  MAGNIFYING_ICON,
+  MENU_ICON,
+  ADD_ICON,
+  SAVE_ICON,
+  SAVED_ICON,
+  LOCATION_ICON,
+  CHECKED_ICON,
+  UP_DOWN_ICON
+];
 
 interface IconProps {
   iconKind: IconKind;
-  onClick:()=> void;
+  onClick: () => void;
 }
 
 const Icon = ({ iconKind, onClick }: IconProps) => {
-  return <>
-  <div onClick={onClick}>
-  {icons[iconKind]}
-  </div>
-  </>;
+  return (
+    <>
+      <div onClick={onClick}>{icons[iconKind]}</div>
+    </>
+  );
 };
 
 export default Icon;

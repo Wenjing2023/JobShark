@@ -3,7 +3,10 @@ enum IconKind {
     Menu = 1,
     Add = 2,
     Save = 3,
-    Saved = 4
+    Saved = 4,
+    Location = 5,
+    Checked = 6,
+    Updown = 7
     
 }
 

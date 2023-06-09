@@ -48,7 +48,6 @@ const HomePage = () => {
         ): (
           <a href="/api/auth/login">Login</a>
         )}
-        
       </PageTemplate>
     </>
   );

@@ -1,13 +1,15 @@
 interface TextInputProps {
-    placeholder: string;
+    placeholder: string,
+    className: string
 }
 
-const TextInput = ({ placeholder }: TextInputProps) => {
+const TextInput = ({ placeholder,className }: TextInputProps) => {
     return (
         <>
             <input
                 type="text"
-                className="outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
+                className={className}
+                // "outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
                 placeholder={placeholder}
             ></input>
         </>
