@@ -7,6 +7,9 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import getJobs from './api/ReedAPI'
+import ReedAPI from "./api/ReedAPI";
+import searchedJob from "@/components/molecules/searchedjob";
 
 
 
@@ -30,7 +33,7 @@ const HomePage = () => {
     window.location.href = '/api/auth/logout';
   };
 
-  console.log(user);
+  // console.log(user);
 
 
 
@@ -47,6 +50,7 @@ const HomePage = () => {
           <h3>Welcome {user?.name}!</h3>
           <button onClick={handleLogout}>Logout</button>
           </>
+          
         ): (
           <a href="/api/auth/login">Login</a>
         )}
