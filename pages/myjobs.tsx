@@ -1,7 +1,15 @@
-const myjobs = () => {
+import PageTemplate from "@/components/templates/pagetemplate";
+import MyTabs from "@/components/organisms/mytabs";
+
+const MyJobs = () => {
     return ( 
-        <h1>Here are my jobs, woo!</h1>
+        <>
+        <PageTemplate>
+        <h1>My Jobs</h1>
+            <MyTabs/>
+        </PageTemplate>
+        </>
      );
 }
  
-export default myjobs;
+export default MyJobs;
