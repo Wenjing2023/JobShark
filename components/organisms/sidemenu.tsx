@@ -45,7 +45,6 @@ const SideMenu = ({ isMenuOpen }: SideMenuProps) => {
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <Title text="Menu" />
         <nav>
           <ul>
             <li>

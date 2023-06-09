@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import { Tab } from '@headlessui/react'
 import classNames from 'classnames';
+import Title from '../atoms/title';
 
 const MyTabs = () => {
+
 
     const jobListToApply = ['CodeClan Instructor', 'CodeClan Technical Assistant']
     const jobListApplied = ['SkyScanner Developer']
