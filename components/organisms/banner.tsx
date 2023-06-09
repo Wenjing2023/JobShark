@@ -5,6 +5,7 @@ import Icon from "../atoms/icon";
 import SideMenu from "./sidemenu";
 import IconKind from "../enums/iconkind";
 import SearchForm from "./searchform";
+import Link from "next/link";
 
 const Banner = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +29,8 @@ const Banner = () => {
         placeholder="Search"
       />
       <Icon iconKind={IconKind.Search} onClick={handleToggleSearchForm} />
-      <Icon iconKind={IconKind.Add} onClick={() => {}} />
+      <Link href="/addjob"><Icon iconKind={IconKind.Add} onClick={() => {}} /></Link>
+      
     </>
   );
 };

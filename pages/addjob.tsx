@@ -1,6 +1,12 @@
+import Title from "@/components/atoms/title";
+import MenuSelect from "@/components/molecules/menuselect";
+import PageTemplate from "@/components/templates/pagetemplate";
+
 const addjob = () => {
     return (
-        <h2>Add job</h2>
+        <PageTemplate>
+            <Title text="Add a job listing"/>
+        </PageTemplate>
       );
 }
  
