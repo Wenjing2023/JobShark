@@ -1,27 +1,27 @@
-import React, {ReactElement, useState } from "react";
-import TabTitle from "../molecules/tabtitle";
+// import React, {ReactElement, useState } from "react";
+// import TabTitle from "../molecules/tabtitle";
 
-type Props = {
-    children: ReactElement[]
-}
+// type Props = {
+//     children: ReactElement[]
+// }
 
-const Tabs: React.FC<Props> = ({ children }) => {
-    const [selectedTab, setSelectedTab] = useState(0);
+// const Tabs: React.FC<Props> = ({ children }) => {
+//     const [selectedTab, setSelectedTab] = useState(0);
 
-    return(
-        <div>
-            <ul>
-                {children.map((item, index) => (
-                    <TabTitle 
-                    key={index} 
-                    title={(item as React.ReactElement<{ title: string }>).props.title}
-                    index={index}
-                    setSelectedTab={setSelectedTab} />
-                ))}
-            </ul>
-            {children[selectedTab]}
-        </div>
-    )
-}
+//     return(
+//         <div>
+//             <ul>
+//                 {children.map((item, index) => (
+//                     <TabTitle 
+//                     key={index} 
+//                     title={(item as React.ReactElement<{ title: string }>).props.title}
+//                     index={index}
+//                     setSelectedTab={setSelectedTab} />
+//                 ))}
+//             </ul>
+//             {children[selectedTab]}
+//         </div>
+//     )
+// }
 
-export default Tabs;
+// export default Tabs;

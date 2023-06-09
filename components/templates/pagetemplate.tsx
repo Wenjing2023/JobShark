@@ -3,6 +3,7 @@ import Banner from "../organisms/banner";
 import Footer from "../organisms/footer";
 import Head from "next/head";
 import 'tailwindcss/tailwind.css';
+import MyJobs from "@/pages/myjobs";
 
 
 
@@ -22,7 +23,9 @@ const PageTemplate: React.FC<Props> = ({ children }) => {
       </Head>
       <header className="flex justify-between items-center mb-4">
         <Banner />
+
       </header>
+      <MyJobs/>
       {children}
       <Footer />
     </>
