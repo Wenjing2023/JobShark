@@ -63,27 +63,28 @@ return ( <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
                 ))}
         </Tab.Panel>
         <Tab.Panel className="rounded-xl bg-white p-3">
-        <ul>
-                {eventsInterview.map((job, index) => (
-                    <li key={index}>{job}</li>
+                {eventsInterview.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul>
         </Tab.Panel>
 
-        <Tab.Panel className="rounded-xl bg-white p-3">        
-            <ul>
-                {eventsDeadline.map((job, index) => (
-                    <li key={index}>{job}</li>
+        <Tab.Panel className="rounded-xl bg-white p-3">
+                {eventsDeadline.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul>
-            </Tab.Panel>
+        </Tab.Panel>
 
-            <Tab.Panel className="rounded-xl bg-white p-3">        
-            <ul>
-                {eventsEvent.map((job, index) => (
-                    <li key={index}>{job}</li>
+        <Tab.Panel className="rounded-xl bg-white p-3">
+                {eventsEvent.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul></Tab.Panel>
+        </Tab.Panel>
 
             </Tab.Panels>
     </Tab.Group>
