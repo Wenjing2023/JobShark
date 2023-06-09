@@ -25,7 +25,6 @@ const PageTemplate: React.FC<Props> = ({ children }) => {
         <Banner />
 
       </header>
-      <MyJobs/>
       {children}
       <Footer />
     </>

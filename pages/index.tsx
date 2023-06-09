@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import MyJobs from "./myjobs";
 
 
 
