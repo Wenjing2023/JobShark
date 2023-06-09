@@ -11,7 +11,6 @@ const Banner = () => {
   const [isSearchFormOpen, setIsSearchFormOpen] = useState(false);
 
   const handleToggleSideMenu = () => {
-    console.log("called handleToggleSideMenu");
     setIsMenuOpen(!isMenuOpen);
   };
 

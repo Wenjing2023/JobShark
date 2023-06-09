@@ -36,7 +36,6 @@ const SearchForm = () => {
             option3="Last 7 days"
             option4="Last 14 days"
           />
-
           <MenuSelect
             lableText="Salary estimated from:"
             option1="£20,000"
