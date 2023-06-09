@@ -1,6 +1,6 @@
 interface buttonProps {
     buttonText: String;
-    type: "button"|"submit";
+    type?: "button"|"submit";
 }
 
 const Button:React.FC<buttonProps> = ({buttonText, type="button"}) => {
