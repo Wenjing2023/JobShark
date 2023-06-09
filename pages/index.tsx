@@ -38,7 +38,7 @@ const HomePage = () => {
       <PageTemplate>
       
         <div className="container mx-auto"></div>
-        <Schedule />
+
         <Button buttonText="click me"/>
         <Toggle filterText="toggle"/>
         {isLoggedIn? (
@@ -49,6 +49,7 @@ const HomePage = () => {
         ): (
           <a href="/api/auth/login">Login</a>
         )}
+        <Schedule />  
       </PageTemplate>
     </>
   );

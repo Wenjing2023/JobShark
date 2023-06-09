@@ -2,14 +2,14 @@ import PageTemplate from "@/components/templates/pagetemplate";
 import Link from "next/link";
 import TextInput from "@/components/atoms/textinput";
 import Button from "@/components/atoms/button";
+import Title from "@/components/atoms/title";
 
 
 const profile: React.FC = () => {
     return (
         <PageTemplate>
+          <Title text="My Profile"/>
         <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
-
-        <h1>My Profile</h1>
         <ul>
             <li>
         <TextInput
