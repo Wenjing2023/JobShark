@@ -1,6 +1,4 @@
 import Link from "next/link";
-
-import Title from "../atoms/title";
 interface SideMenuProps {
   isMenuOpen: boolean;
 }
@@ -9,7 +7,7 @@ const SideMenu = ({ isMenuOpen }: SideMenuProps) => {
   return (
     <>
       <aside
-        className={`h-screen w-64 fixed top-20 left-0 transition-transform ${
+        className={`h-screen w-64 fixed top-20 left-20 transition-transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -26,7 +24,7 @@ const SideMenu = ({ isMenuOpen }: SideMenuProps) => {
               </p>
             </li>
             <li>
-              <Link href="/myjobs">Jobs</Link>
+              <Link href="/myjobs">My Jobs</Link>
             </li>
           </ul>
         </nav>
