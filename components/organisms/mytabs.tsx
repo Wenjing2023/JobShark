@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 interface Job {
+    jobId: number;
     jobTitle: string;
     employerName: string;
     locationName: string;
@@ -28,7 +29,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
   const router = useRouter();
 
   return (
-    <Link href="/job/[jobTitle]" as={`/job/${encodeURIComponent(job.jobTitle)}`} passHref>
+    <Link href="/job/[jobId]" as={`/job/${encodeURIComponent(job.jobId)}`} passHref>
       <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
         <div className="flex flex-col justify-between p-4 leading-normal">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{job.jobTitle}</h5>
@@ -53,24 +54,24 @@ const MyTabs: React.FC = () => {
 
 
     const jobListToApply: Job[] = [
-        { jobTitle: 'Instructor', employerName: 'CodeClan', locationName: 'Edinburgh', minimumSalary: '30000', maximumSalary: '40000', jobDescription: 'Fantastic tutor required', date: '30 July 2023', jobUrl: 'www.codeclan.com', applications: '73'},
-        { jobTitle: 'Technical Assistant', employerName: 'CodeClan', locationName: 'Glasgow', minimumSalary: '25000', maximumSalary: '35000', jobDescription: 'Supporing students', date: '01 August 2023', jobUrl: 'www.codeclan.com', applications: '79'}
+        { jobId: 1, jobTitle: 'Instructor', employerName: 'CodeClan', locationName: 'Edinburgh', minimumSalary: '30000', maximumSalary: '40000', jobDescription: 'Fantastic tutor required', date: '30 July 2023', jobUrl: 'www.codeclan.com', applications: '73'},
+        { jobId: 2, jobTitle: 'Technical Assistant', employerName: 'CodeClan', locationName: 'Glasgow', minimumSalary: '25000', maximumSalary: '35000', jobDescription: 'Supporing students', date: '01 August 2023', jobUrl: 'www.codeclan.com', applications: '79'}
     
     ];
 
     const jobListApplied: Job[] = [
-        { jobTitle: 'FrontEnd Developer', employerName: 'SkyScanner', locationName: 'Edinburgh', minimumSalary: '30000', maximumSalary: '40000', jobDescription: 'Front End Developer', date: '31 August 2023', jobUrl: 'www.codeclan.com', applications: '72'},
-        { jobTitle: 'BackEnd Developer', employerName: 'SkyScanner', locationName: 'Glasgow', minimumSalary: '35000', maximumSalary: '45000', jobDescription: 'Back End Developer', date: '09 August 2023', jobUrl: 'www.codeclan.com', applications: '109'}
+        { jobId: 3, jobTitle: 'FrontEnd Developer', employerName: 'SkyScanner', locationName: 'Edinburgh', minimumSalary: '30000', maximumSalary: '40000', jobDescription: 'Front End Developer', date: '31 August 2023', jobUrl: 'www.codeclan.com', applications: '72'},
+        { jobId: 4, jobTitle: 'BackEnd Developer', employerName: 'SkyScanner', locationName: 'Glasgow', minimumSalary: '35000', maximumSalary: '45000', jobDescription: 'Back End Developer', date: '09 August 2023', jobUrl: 'www.codeclan.com', applications: '109'}
     ];
 
 
     const jobListInterview: Job[] = [
-        { jobTitle: 'FrontEnd Developer', employerName: 'X-Design', locationName: 'Edinburgh', minimumSalary: '30000', maximumSalary: '40000', jobDescription: 'Front End Developer', date: '31 August 2023', jobUrl: 'www.codeclan.com', applications: '72'},
-        { jobTitle: 'UX Designer', employerName: 'X-Design', locationName: 'Glasgow', minimumSalary: '35000', maximumSalary: '45000', jobDescription: 'Back End Developer', date: '09 August 2023', jobUrl: 'www.codeclan.com', applications: '109'}
+        { jobId: 5, jobTitle: 'FrontEnd Developer', employerName: 'X-Design', locationName: 'Edinburgh', minimumSalary: '30000', maximumSalary: '40000', jobDescription: 'Front End Developer', date: '31 August 2023', jobUrl: 'www.codeclan.com', applications: '72'},
+        { jobId: 6, jobTitle: 'UX Designer', employerName: 'X-Design', locationName: 'Glasgow', minimumSalary: '35000', maximumSalary: '45000', jobDescription: 'Back End Developer', date: '09 August 2023', jobUrl: 'www.codeclan.com', applications: '109'}
     ];
 
     const jobListResult: Job[] = [
-        { jobTitle: 'CEO', employerName: 'Google', locationName: 'San Francisco', minimumSalary: '3000000', maximumSalary: '100000000', jobDescription: 'Front End Developer', date: '31 October 2023', jobUrl: 'www.google.com', applications: '23472'},
+        { jobId: 7,jobTitle: 'CEO', employerName: 'Google', locationName: 'San Francisco', minimumSalary: '3000000', maximumSalary: '100000000', jobDescription: 'Front End Developer', date: '31 October 2023', jobUrl: 'www.google.com', applications: '23472'},
     ];
 
 

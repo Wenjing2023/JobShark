@@ -45,7 +45,7 @@ const profile: React.FC = () => {
       />
 
         <div className="flex justify-center">
-        <Button buttonText="Submit"/>
+        <Button buttonText="Submit" />
    
         </div>
         </div>
