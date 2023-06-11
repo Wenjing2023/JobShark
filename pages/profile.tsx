@@ -44,10 +44,10 @@ const profile: React.FC = () => {
         placeholder="Industry"
       />
 
-
+        <div className="flex justify-center">
         <Button buttonText="Submit"/>
    
-
+        </div>
         </div>
         </div>
         </PageTemplate>
