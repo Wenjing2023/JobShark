@@ -2,7 +2,44 @@ import { Tab } from '@headlessui/react'
 import classNames from 'classnames';
 import Title from '../atoms/title';
 
+<<<<<<< HEAD
 const MyTabs = () => {
+=======
+interface Job {
+    jobTitle: string;
+    employerName: string;
+    locationName: string;
+    minimumSalary: string;
+    maximumSalary: string;
+    jobDescription: string;
+    date: string;
+    jobUrl: string;
+    applications: string;
+};
+
+interface JobCardProps {
+    job: Job;
+};
+
+const JobCard: React.FC<JobCardProps> = ({job}) => {
+    return (
+        <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
+        <div className="flex flex-col justify-between p-4 leading-normal">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{job.jobTitle}</h5>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{job.employerName}</p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Location: {job.locationName}</p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{job.jobDescription}</p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Salary: {job.minimumSalary} to {job.maximumSalary}</p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Application Deadline: {job.date}</p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Apply Here: {job.jobUrl}</p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of applications: {job.applications}</p>
+        </div>
+      </a>
+    );
+};
+
+const MyTabs: React.FC = () => {
+>>>>>>> main
 
 
     const jobListToApply = ['CodeClan Instructor', 'CodeClan Technical Assistant']

@@ -6,23 +6,29 @@ import { Fragment } from 'react';
 interface Event {
     title: string;
     description: string;
+    date: string;
 }
 
 interface EventCardProps {
     event: Event;
 }
 
-const EventCard: React.FC<EventCardProps> = ({event}) => {
+
+
+
+const EventCard: React.FC<EventCardProps> = ({ event }) => {
     return (
-        <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/docs/images/blog/image-4.jpg" alt="" />
-        <div className="flex flex-col justify-between p-4 leading-normal">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{event.title}</h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{event.description}</p>
-        </div>
-      </a>
-    );
-};
+        <a href="#" className="flex bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
+          <div className="flex items-center justify-center w-24 bg-jaws-blue">
+            <span className="text-2xl text-white px-4 py-8">{event.date}</span>
+          </div>
+          <div className="flex-1 flex flex-col p-4 leading-normal">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{event.title}</h5>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{event.description}</p>
+          </div>
+        </a>
+      );
+    };
 
 
 const Schedule: React.FC = () => {
@@ -31,16 +37,16 @@ const Schedule: React.FC = () => {
 
 
     const eventsInterview: Event[] = [
-        { title:'Interview 1', description: 'A wee chat'}, 
-        { title: 'Interview 2', description: 'Technical inteview'}
+        { title:'Interview 1', description: 'A wee chat about a potential job. Meet at office to discuss. Lots to talk about. Coffee to drink. Colleagues to meet.  Sometimes there is a dog.', date: '30 June 2023'}, 
+        { title: 'Interview 2', description: 'Technical inteview', date: '01 July 2023'}
     ];
     const eventsDeadline: Event[] = [
-        { title:'Deadline 1', description: 'Deadline'}, 
-        { title: 'Deadline 2', description: 'Another deadline'}
+        { title:'Deadline 1', description: 'Deadline', date: '10 July 2023'}, 
+        { title: 'Deadline 2', description: 'Another deadline', date: '04 July 2023'}
     ];
     const eventsEvent: Event[] = [
-        { title:'Event 1', description: 'Networking'}, 
-        { title: 'Event 2', description: 'Party'}
+        { title:'Event 1', description: 'Networking', date: '05 July 2023'}, 
+        { title: 'Event 2', description: 'Party', date: '05 July 2023'}
     ];
     const eventsAll: Event[] = [...eventsInterview, ...eventsDeadline, ...eventsEvent]
 
