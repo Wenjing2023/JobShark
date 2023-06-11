@@ -9,7 +9,7 @@ const TextInput = ({ placeholder,className }: TextInputProps) => {
             <input
                 type="text"
                 className={className}
-                // "outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
+                // "flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
                 placeholder={placeholder}
             ></input>
         </>
