@@ -32,15 +32,20 @@ interface SearchedJobProps {
 const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
     return (
 
-        <a href="#" className="flex bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
-          <div className="flex items-center justify-center w-24 bg-jaws-blue">
-            <span className="text-2xl text-white px-4 py-8">{searchedJob.jobTitle}</span>
-          </div>
-          <div className="flex-1 flex flex-col p-4 leading-normal">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{searchedJob.jobDescription}</h5>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{searchedJob.jobDescription}</p>
-          </div>
-        </a>
+<a href="#" className="flex bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
+  <div className="flex-1 flex flex-col p-4 leading-normal">
+  <h2 className="mb-2 text-2xl font-bold tracking-tight text-jaws-white dark:text-white bg-jaws-blue">{searchedJob.jobTitle}</h2>
+  <h3 className="mb-2 text-2xl tracking-tight text-jaws-white dark:text-white bg-jaws-blue">{searchedJob.employerName}</h3>
+    <div>
+    </div>
+    <p className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{searchedJob.locationName}</p>
+    <p className="mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white">£{searchedJob.minimumSalary} to £{searchedJob.maximumSalary}</p>
+    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{searchedJob.jobDescription}</p>
+    <p className="mb-3 font-bold text-gray-700 dark:text-gray-400">Apply by {searchedJob.expirationDate}</p>
+    
+  </div>
+</a>
+
 
       );
     };
