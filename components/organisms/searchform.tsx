@@ -1,11 +1,15 @@
+import Button from "../atoms/button";
 import CheckBox from "../atoms/checkbox";
 import Icon from "../atoms/icon";
 import TextInput from "../atoms/textinput";
 import IconKind from "../enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
-import JobForm from "./jobform";
 
-const SearchForm = ({  }) => {
+interface SearchFormProps{
+  handleToggleSearchForm: () => void;
+}
+
+const SearchForm = ({handleToggleSearchForm}:SearchFormProps) => {
   return (
     <div className="bg-jaws-white p-4 md:p-8">
       <div className="mb-4 md:flex md:justify-between md:space-x-4 md:mb-8">
@@ -21,6 +25,7 @@ const SearchForm = ({  }) => {
             placeholder="location"
           />
           <Icon iconKind={IconKind.Location} onClick={() => {}} />
+          <Icon iconKind={IconKind.Close} onClick={handleToggleSearchForm} />
         </div>
       </div>
 
@@ -47,12 +52,6 @@ const SearchForm = ({  }) => {
       <div className="mb-4 md:mb-8">
         <CheckBox checkboxText="Work from home" />
       </div>
-
-      <div className="mb-4 md:mb-8">
-        <button >Close</button>
-      </div>
-
-      <JobForm />
     </div>
   );
 };

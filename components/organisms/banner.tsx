@@ -13,11 +13,12 @@ import SideMenu from "./sidemenu";
 import IconKind from "../enums/iconkind";
 import SearchForm from "./searchform";
 import Link from "next/link";
+import JobForm from "./jobform";
 
 const Banner = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchFormOpen, setIsSearchFormOpen] = useState(false);
-  const searchFormRef = useRef(null);
+  const [isJobFormOpen, setIsJobFormOpen] = useState(false);
 
   const handleLogout = () => {
     window.location.href = "/api/auth/logout";
@@ -30,47 +31,35 @@ const Banner = () => {
   const handleToggleSearchForm = () => {
     setIsSearchFormOpen(!isSearchFormOpen);
   };
-
-  // // useEffect(() => {
-  // const handleClickOutside = (event: MouseEvent) => {
-  //   console.log(isSearchFormOpen);
-  //   if (
-  //     isSearchFormOpen &&
-  //     searchFormRef.current &&
-  //     !searchFormRef.current.contains(event.target as Node)
-  //   ) {
-  //     console.log("Click outside");
-  //     setIsSearchFormOpen(false);
-  //   }
-  //   console.log("Click inside");
-  // };
-
-  // if (typeof window !== "undefined") {
-  //   document.addEventListener("mousedown", handleClickOutside as any);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside as any);
-  //   };
-  // }
-  // }, []);
+  const handleToggleJobForm = () => {
+    setIsJobFormOpen(!isJobFormOpen);
+  };
 
   return (
     <>
-      <div className="flex p-4 m-auto justify-center ">
+      <nav className="flex p-4 m-auto w-full sticky top-0  mb-7 items-center justify-center h-10">
+
         {isSearchFormOpen && (
-          <div
-            ref={searchFormRef}
-            className="fixed inset-0 bg-gray-800 bg-opacity-80 flex items-center justify-center z-20"
-          >
-            <SearchForm />
+          <div className="fixed inset-0 bg-gray-800 bg-opacity-80 flex items-center justify-center z-20">
+            <SearchForm handleToggleSearchForm={handleToggleSearchForm} />
           </div>
         )}
+        {isJobFormOpen && (
+          <div className="fixed inset-0 bg-gray-800 bg-opacity-80 flex items-center justify-center z-20">
+            <JobForm handleToggleJobForm={handleToggleJobForm} />
+          </div>
+        )}
+
         <SideMenu isMenuOpen={isMenuOpen} />
         <Icon iconKind={IconKind.Menu} onClick={handleToggleSideMenu} />
-        <TextInput className="" placeholder="Search" />
+        <TextInput
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-7 m-5 "
+          placeholder="Search"
+        />
         <Icon iconKind={IconKind.Search} onClick={handleToggleSearchForm} />
-        <Icon iconKind={IconKind.Add} onClick={() => {}} />
+        <Icon iconKind={IconKind.Add} onClick={handleToggleJobForm} />
         <Icon iconKind={IconKind.Logout} onClick={handleLogout} />
-      </div>
+      </nav>
     </>
   );
 };
