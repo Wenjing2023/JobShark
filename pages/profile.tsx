@@ -17,10 +17,6 @@ const profile: React.FC = () => {
         
           <div className="space-y-4">
 
-
-
-
-
         <TextInput
         className="w-full px-4 py-2 text-jaws-white bg-jaws-blue rounded-md hover:bg-jaws-light-blue focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Name"
