@@ -39,7 +39,8 @@ const SearchResults:React.FC<SearchedJob> = ({job}) => {
       });
     }, []);
 
-    
+   ///
+
     return ( <>
         {loading ? (
           <h3>Loading...</h3>
@@ -59,5 +60,7 @@ const SearchResults:React.FC<SearchedJob> = ({job}) => {
         </>
      );
 }
+
+///
  
 export default SearchResults;
