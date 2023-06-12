@@ -6,7 +6,8 @@ import dynamic from "next/dynamic";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
-import ReedApi from "/Users/aneeqayusaf/CodeClan_Work/Capstone/JobShark/pages/api/reedapi.js"
+import SearchResults from "./searchresults";
+
 
 
 const HomePage = () => {
@@ -32,7 +33,7 @@ const HomePage = () => {
           <a href="/api/auth/login"></a>
         )}
         <Title text="My Schedule" />
-        <ReedApi/>
+        {/* <SearchResults job={job}/> */}
         <Schedule />
       </PageTemplate>
     </>
