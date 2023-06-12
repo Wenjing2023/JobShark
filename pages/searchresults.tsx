@@ -46,8 +46,8 @@ const SearchResults:React.FC<SearchedJob> = ({job}) => {
         ) : (
           <>
             {allJobs ? (
-              allJobs.slice(0, 15).map((job) => {
-                return <SearchedJob key={job.jobId} job={job}/>;
+              allJobs.slice(0, 15).map((job, index) => {
+                return <SearchedJob key={index} job={job}/>;
               })
             ) : (
               <p>No jobs found</p>
