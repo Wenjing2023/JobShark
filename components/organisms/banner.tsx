@@ -30,19 +30,19 @@ const Banner = () => {
     setIsSearchFormOpen(!isSearchFormOpen);
   };
 
-  // useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    console.log(isSearchFormOpen);
-    if (
-      isSearchFormOpen &&
-      searchFormRef.current &&
-      !searchFormRef.current.contains(event.target as Node)
-    ) {
-      console.log("Click outside");
-      setIsSearchFormOpen(false);
-    }
-    console.log("Click inside");
-  };
+  // // useEffect(() => {
+  // const handleClickOutside = (event: MouseEvent) => {
+  //   console.log(isSearchFormOpen);
+  //   if (
+  //     isSearchFormOpen &&
+  //     searchFormRef.current &&
+  //     !searchFormRef.current.contains(event.target as Node)
+  //   ) {
+  //     console.log("Click outside");
+  //     setIsSearchFormOpen(false);
+  //   }
+  //   console.log("Click inside");
+  // };
 
   // if (typeof window !== "undefined") {
   //   document.addEventListener("mousedown", handleClickOutside as any);
@@ -60,7 +60,7 @@ const Banner = () => {
             ref={searchFormRef}
             className="fixed inset-0 bg-gray-800 bg-opacity-80 flex items-center justify-center z-20"
           >
-            <SearchForm handleToggleSearchForm={handleToggleSearchForm}/>
+            <SearchForm />
           </div>
         )}
         <SideMenu isMenuOpen={isMenuOpen} />
