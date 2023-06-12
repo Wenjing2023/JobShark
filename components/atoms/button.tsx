@@ -1,15 +1,14 @@
 interface buttonProps {
-  buttonText: String;
+    buttonText: String;
+    type?: "button"|"submit";
 }
 
-const Button: React.FC<buttonProps> = ({ buttonText }) => {
-  return (
-    <>
-      <button className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue p-2 px-5">
-        {buttonText}
-      </button>
-    </>
-  );
-};
-
+const Button:React.FC<buttonProps> = ({buttonText, type="button"}) => {
+    return ( 
+        <>
+        <button type={type} className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue">{buttonText}</button>
+        </>
+     );
+}
+ 
 export default Button;

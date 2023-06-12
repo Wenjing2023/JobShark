@@ -12,6 +12,7 @@ import Icon from "../atoms/icon";
 import SideMenu from "./sidemenu";
 import IconKind from "../enums/iconkind";
 import SearchForm from "./searchform";
+import Link from "next/link";
 
 const Banner = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
