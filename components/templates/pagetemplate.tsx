@@ -19,12 +19,12 @@ const PageTemplate: React.FC<Props> = ({ children }) => {
           content="A job search & tracker app for users"
         />
       </Head>
+
+      <header className="bg-jaws-white ">
+        <Banner />
+      </header>
       <div className="flex flex-col min-h-screen">
-        <header className=" w-full sticky top-0 justify-between items-center mb-7 h-10">
-          {/*  */}
-          <Banner />
-        </header>
-        <main className="flex-1 overflow-y-auto max-w-screen-sm mx-auto overscroll-auto md:overscroll-contain">
+        <main className=" max-w-screen-sm mx-auto overscroll-auto md:overscroll-contain">
           <div className="flex justify-center">
             <div className="max-h-[calc(100vh-10rem)]  px-4 "> {children}</div>{" "}
           </div>
