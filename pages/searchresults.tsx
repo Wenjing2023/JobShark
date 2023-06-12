@@ -1,10 +1,14 @@
+// import Title from "../atoms/title";
+import PageTemplate from '@/components/templates/pagetemplate';
+import { Tab } from '@headlessui/react';
+import classNames from 'classnames';
+import { Fragment } from 'react';
 import { useState, useEffect } from 'react';
-
-import SearchedJob from "@/components/molecules/searchedjob";
+// import SearchedJob from '@/components/molecules/searchedjob';
 import { loadAllJobs } from './api/reedapi';
 
-interface SearchedJob{
-    job: {
+
+type SearchedJob={
 			jobId: number,
 			employerId: number,
 			employerName: string,
@@ -18,11 +22,32 @@ interface SearchedJob{
 			jobDescription: string,
 			applications: number,
 			jobUrl: string
-		}
+
 }
 
+interface SearchedJobProps {
+    searchedJob: SearchedJob;
+}
 
-const SearchResults:React.FC<SearchedJob> = ({job}) => {
+const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
+    return (
+
+        <a href="#" className="flex bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
+          <div className="flex items-center justify-center w-24 bg-jaws-blue">
+            <span className="text-2xl text-white px-4 py-8">{searchedJob.jobTitle}</span>
+          </div>
+          <div className="flex-1 flex flex-col p-4 leading-normal">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{searchedJob.jobDescription}</h5>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{searchedJob.jobDescription}</p>
+          </div>
+        </a>
+
+      );
+    };
+
+
+
+const SearchResults: React.FC<SearchedJob> = ({ }) => {
     const [allJobs, setAllJobs] = useState<[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -39,28 +64,35 @@ const SearchResults:React.FC<SearchedJob> = ({job}) => {
       });
     }, []);
 
-   ///
 
-    return ( <>
-        {loading ? (
-          <h3>Loading...</h3>
-        ) : (
-          <>
-            {allJobs ? (
-              allJobs.slice(0, 15).map((job, index) => {
-                return <SearchedJob key={index} job={job}/>;
-              })
-            ) : (
-              <p>No jobs found</p>
-            )}
-          </>
-        )}
-        {/* <h2>Search Results</h2>
-        <SearchedJob key={job.jobId} job={job}/> */}
-        </>
-     );
-}
 
-///
+
+    return (
+      <PageTemplate>
+        <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
+          <Tab.Group>
+            <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+              <Tab className={({ selected }) => classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected ? 'bg-blue-500 text-white' : 'text-blue-700')}>Job Search Results</Tab>
+            </Tab.List>
+            <Tab.Panels className="mt-2">
+              <Tab.Panel className="rounded-xl bg-white p-3">
+                <>
+                  {allJobs.length > 0 ? (
+                    allJobs.slice(0, 15).map((job, index) => (
+                      <Fragment key={index}>
+                        <SearchedJob searchedJob={job} />
+                      </Fragment>
+                    ))
+                  ) : (
+                    <p>No jobs found</p>
+                  )}
+                </>
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
+        </div>
+        </PageTemplate>
+      );
+    }
  
 export default SearchResults;

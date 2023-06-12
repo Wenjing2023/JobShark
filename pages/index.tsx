@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
-import SearchResults2 from "./searchresults2";
+import SearchResults from "./searchresults";
 
 
 
@@ -34,7 +34,6 @@ const HomePage = () => {
         )}
         <Title text="My Schedule" />
         {/* <SearchResults job={job}/> */}
-        <SearchResults2/>
         <Schedule />
       </PageTemplate>
     </>
