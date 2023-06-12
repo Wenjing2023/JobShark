@@ -3,9 +3,10 @@ import { useState } from "react";
 interface TextInputProps {
     placeholder: string,
     className: string
+  
 }
 
-const TextInput = ({ placeholder,className }: TextInputProps) => {
+const TextInput = ({ placeholder, className }: TextInputProps) => {
     // const [input, setInput] = useState('')
 
     return (

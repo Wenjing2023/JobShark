@@ -7,7 +7,8 @@ enum IconKind {
     Location = 5,
     Checked = 6,
     Updown = 7,
-    Logout =8
+    Logout =8,
+    Email = 9
     
 }
 

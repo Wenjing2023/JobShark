@@ -3,23 +3,21 @@ import Icon from "../atoms/icon";
 import TextInput from "../atoms/textinput";
 import IconKind from "../enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
+import JobForm from "./jobform";
 
-
-
-const SearchForm = () => {
+const SearchForm = ({  }) => {
   return (
-    <div 
-    className="bg-jaws-white p-4 md:p-8">
+    <div className="bg-jaws-white p-4 md:p-8">
       <div className="mb-4 md:flex md:justify-between md:space-x-4 md:mb-8">
         <div className="flex items-center space-x-2 mb-2 md:mb-0">
           <TextInput
-            className="flex-grow outline-none bg-white rounded-lg text-jaws-black focus:outline-jaws-blue"
+            className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
             placeholder="Job title"
           />
           <Icon iconKind={IconKind.Search} onClick={() => {}} />
 
           <TextInput
-            className="flex-grow outline-none bg-white rounded-lg text-jaws-black focus:outline-jaws-blue"
+            className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
             placeholder="location"
           />
           <Icon iconKind={IconKind.Location} onClick={() => {}} />
@@ -49,6 +47,12 @@ const SearchForm = () => {
       <div className="mb-4 md:mb-8">
         <CheckBox checkboxText="Work from home" />
       </div>
+
+      <div className="mb-4 md:mb-8">
+        <button >Close</button>
+      </div>
+
+      <JobForm />
     </div>
   );
 };
