@@ -6,15 +6,16 @@ import dynamic from "next/dynamic";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
+import { useState, useEffect } from 'react';
 import SearchResults from "./searchresults";
 
 
 
 const HomePage = () => {
   const { user, error, isLoading } = useUser();
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsLoggedIn(!!user);
   }, [user]);
 
