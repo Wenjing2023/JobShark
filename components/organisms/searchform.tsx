@@ -5,7 +5,7 @@ import IconKind from "../enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
 import JobForm from "./jobform";
 
-const SearchForm = ({ handleToggleSearchForm }) => {
+const SearchForm = ({  }) => {
   return (
     <div className="bg-jaws-white p-4 md:p-8">
       <div className="mb-4 md:flex md:justify-between md:space-x-4 md:mb-8">
@@ -49,7 +49,7 @@ const SearchForm = ({ handleToggleSearchForm }) => {
       </div>
 
       <div className="mb-4 md:mb-8">
-        <button onClick={handleToggleSearchForm}>Close</button>
+        <button >Close</button>
       </div>
 
       <JobForm />
