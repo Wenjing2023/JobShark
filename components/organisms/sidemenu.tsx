@@ -1,40 +1,39 @@
 import Link from "next/link";
-import Title from "../atoms/title";
+
 interface SideMenuProps {
-    isMenuOpen: boolean;
+  isMenuOpen: boolean;
 }
 
 const SideMenu = ({ isMenuOpen }: SideMenuProps) => {
-    return (
-        <>
-            <aside
-                className={`h-screen w-64 fixed top-20 left-0 transition-transform ${
-                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                }`}
-            >
-                <Title text="Menu" />
-                <nav>
-                    <ul>
-                        <li>
-                            <Link href="/">
-                                <p>Home</p>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/users/profile">
-                                <p>Profile</p>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/myjobs">
-                                <p>Jobs</p>
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-        </>
-    );
+  return (
+    <>
+      <aside
+        className={`h-screen w-64 fixed top-20 left-0 transition-transform ${
+          isMenuOpen ? "translate-x-20" : "-translate-x-full"
+        }`}
+      >
+       
+          <ul>
+            <li>
+              <Link href="/">
+                <p>Home</p>
+              </Link>
+            </li>
+            <li>
+              <Link href="/users/profile">
+                <p>Profile</p>
+              </Link>
+            </li>
+            <li>
+              <Link href="/myjobs">
+                <p>Jobs</p>
+              </Link>
+            </li>
+          </ul>
+    
+      </aside>
+    </>
+  );
 };
 
 export default SideMenu;
