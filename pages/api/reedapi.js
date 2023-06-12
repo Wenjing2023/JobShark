@@ -48,7 +48,7 @@ const ReedApi = () => {
             {allJobs ? (
               allJobs.slice(0, 15).map((job) => {
                 return <SearchResults key={job.jobId} job={job}/>;
-                console.log({job})
+                <JobCard job={job}/>
               })
             ) : (
               <p>No jobs found</p>
