@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import Title from "../atoms/title";
 interface SideMenuProps {
     isMenuOpen: boolean;

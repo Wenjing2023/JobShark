@@ -1,17 +1,54 @@
 import Title from "../atoms/title";
 import { Tab } from '@headlessui/react';
 import classNames from 'classnames';
+import { Fragment } from 'react';
+
+interface Event {
+    title: string;
+    description: string;
+    date: string;
+}
+
+interface EventCardProps {
+    event: Event;
+}
 
 
-const Schedule = () => {
+
+
+const EventCard: React.FC<EventCardProps> = ({ event }) => {
+    return (
+        <a href="#" className="flex bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2">
+          <div className="flex items-center justify-center w-24 bg-jaws-blue">
+            <span className="text-2xl text-white px-4 py-8">{event.date}</span>
+          </div>
+          <div className="flex-1 flex flex-col p-4 leading-normal">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{event.title}</h5>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{event.description}</p>
+          </div>
+        </a>
+      );
+    };
+
+
+const Schedule: React.FC = () => {
 
 
 
 
-    const eventsInterview = ['Interview 1', 'Interview 2']
-    const eventsDeadline = ['Deadline 1', 'Deadline 2']
-    const eventsEvent = ['Event 1', 'Event 2']
-    const eventsAll = [...eventsInterview, ...eventsDeadline, ...eventsEvent]
+    const eventsInterview: Event[] = [
+        { title:'Interview 1', description: 'A wee chat about a potential job. Meet at office to discuss. Lots to talk about. Coffee to drink. Colleagues to meet.  Sometimes there is a dog.', date: '30 June 2023'}, 
+        { title: 'Interview 2', description: 'Technical inteview', date: '01 July 2023'}
+    ];
+    const eventsDeadline: Event[] = [
+        { title:'Deadline 1', description: 'Deadline', date: '10 July 2023'}, 
+        { title: 'Deadline 2', description: 'Another deadline', date: '04 July 2023'}
+    ];
+    const eventsEvent: Event[] = [
+        { title:'Event 1', description: 'Networking', date: '05 July 2023'}, 
+        { title: 'Event 2', description: 'Party', date: '05 July 2023'}
+    ];
+    const eventsAll: Event[] = [...eventsInterview, ...eventsDeadline, ...eventsEvent]
 
 
 return ( <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
@@ -25,34 +62,35 @@ return ( <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
       </Tab.List>
       <Tab.Panels className="mt-2">
         <Tab.Panel className="rounded-xl bg-white p-3">
-            <ul>
-                {eventsAll.map((job, index) => (
-                    <li key={index}>{job}</li>
+                {eventsAll.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul>
         </Tab.Panel>
         <Tab.Panel className="rounded-xl bg-white p-3">
-        <ul>
-                {eventsInterview.map((job, index) => (
-                    <li key={index}>{job}</li>
+                {eventsInterview.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul>
         </Tab.Panel>
 
-        <Tab.Panel className="rounded-xl bg-white p-3">        
-            <ul>
-                {eventsDeadline.map((job, index) => (
-                    <li key={index}>{job}</li>
+        <Tab.Panel className="rounded-xl bg-white p-3">
+                {eventsDeadline.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul>
-            </Tab.Panel>
+        </Tab.Panel>
 
-            <Tab.Panel className="rounded-xl bg-white p-3">        
-            <ul>
-                {eventsEvent.map((job, index) => (
-                    <li key={index}>{job}</li>
+        <Tab.Panel className="rounded-xl bg-white p-3">
+                {eventsEvent.map((event, index) => (
+                    <Fragment key={index}>
+                        <EventCard event={event} />
+                        </Fragment>
                 ))}
-            </ul></Tab.Panel>
+        </Tab.Panel>
 
             </Tab.Panels>
     </Tab.Group>

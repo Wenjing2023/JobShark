@@ -6,7 +6,9 @@ enum IconKind {
     Saved = 4,
     Location = 5,
     Checked = 6,
-    Updown = 7
+    Updown = 7,
+    Logout =8,
+    Email = 9
     
 }
 
