@@ -10,45 +10,4 @@ export const loadAllJobs = () => {
       Authorization: authHeader,
     },
   }).then((res) => res.json());
-  // {
-  //   if (!res.ok) {
-  //     console.log(res);
-  //     throw new Error("API request failed");
-  //   }
-  //   else
-  // })
-  // .then((data) => {
-  //   setAllJobs(data.results);
-  //   setLoading(false);
-  // })
-  // .catch((error) => {
-  //   console.log("Error getting data", error);
-  //   setLoading(false);
-  // });
-};
-
-// return (
-//   <>
-//{
-  /* <div>
-        {loading ? (
-          <h3>Loading...</h3>
-        ) : (
-          <>
-            {allJobs ? (
-              allJobs.slice(0, 15).map((job) => {
-                return <SearchResults key={job.jobId} job={job}/>;
-                <JobCard job={job}/>
-              })
-            ) : (
-              <p>No jobs found</p>
-            )}
-          </>
-        )}
-      </div> */
-//}
-//     </>
-//   );
-// };
-
-// export default ReedApi;
+}
