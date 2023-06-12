@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
+import SearchResults from "./searchresults";
 
 
 
@@ -17,7 +18,6 @@ const HomePage = () => {
     setIsLoggedIn(!!user);
   }, [user]);
 
-  console.log(user);
 
   return (
     <>
@@ -33,6 +33,7 @@ const HomePage = () => {
           <a href="/api/auth/login"></a>
         )}
         <Title text="My Schedule" />
+        {/* <SearchResults job={job}/> */}
         <Schedule />
       </PageTemplate>
     </>
