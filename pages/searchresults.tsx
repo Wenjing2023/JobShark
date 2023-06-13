@@ -27,6 +27,10 @@ interface SearchedJobProps {
 }
 
 const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
+  const onSubmit =()=>{
+
+  }
+
   return (
     <a
       href="#"
@@ -52,6 +56,14 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
         <p className="mb-3 font-bold text-gray-700 dark:text-gray-400">
           Apply by {searchedJob.expirationDate}
         </p>
+        
+        <button
+          className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue"
+          type="submit"
+          onClick={onSubmit}
+        >
+          Save to my jobs
+        </button>
       </div>
     </a>
   );
@@ -78,17 +90,18 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
   }, []);
 
   const searchResults = allJobs.filter((job) => {
-    if(data?.jobTitleQuery !== undefined && data?.locationNameQuery !== undefined){
+    if (
+      data?.jobTitleQuery !== undefined &&
+      data?.locationNameQuery !== undefined
+    ) {
       return (
-        job.jobTitle.includes((data?.jobTitleQuery as string[])?.[0])  ||
+        job.jobTitle.includes((data?.jobTitleQuery as string[])?.[0]) &&
         job.locationName.includes((data?.locationNameQuery as string[])?.[0])
       );
     }
-  
   });
 
   console.log("searchResults: ", searchResults);
-  
 
   return (
     <PageTemplate>
