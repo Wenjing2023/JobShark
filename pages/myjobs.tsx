@@ -20,7 +20,9 @@ type Job = {
     partTime: Boolean,
     fullTime: Boolean,
     contractType: String,
-    applicationCount: Number
+    applicationCount: Number,
+    applicationStage: Number,
+    rejected: Boolean
 };
 
 const MyJobs = () => {

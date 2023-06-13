@@ -4,9 +4,9 @@ export default withApiAuthRequired(async function jobs(req, res) {
     try {
         const { accessToken } = await getAccessToken(req, res);
 
-        console.log(accessToken);
+        console.log(process.env.BACKEND_BASE_URL);
 
-        const response = await fetch("http://localhost:8080/jobs", {
+        const response = await fetch(process.env.BACKEND_BASE_URL+"jobs", {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
