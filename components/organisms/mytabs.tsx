@@ -78,10 +78,10 @@ const MyTabs: React.FC = () => {
     return ( <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
         <Tab.Group>
       <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>To Apply</Tab>
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>Applied</Tab>
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>Interview</Tab>
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>Result</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>To Apply</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>Applied</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>Interview</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>Result</Tab>
 
       </Tab.List>
       <Tab.Panels className="mt-2">
