@@ -1,11 +1,15 @@
-// import Title from "../atoms/title";
 import PageTemplate from '@/components/templates/pagetemplate';
 import { Tab } from '@headlessui/react';
 import classNames from 'classnames';
 import { Fragment } from 'react';
 import { useState, useEffect } from 'react';
-// import SearchedJob from '@/components/molecules/searchedjob';
 import { loadAllJobs } from './api/reedapi';
+import { useRouter } from 'next/router'
+const router = useRouter();
+const data = router.query;
+
+console.log("state in search result:",data );
+
 
 
 type SearchedJob={
