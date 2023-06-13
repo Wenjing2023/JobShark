@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { loadAllJobs } from "./api/reedapi";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type SearchedJob = {
   jobId: number;
@@ -27,9 +28,11 @@ interface SearchedJobProps {
 }
 
 const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
-  const onSubmit =()=>{
+  const onSubmit = () => {
+    return searchedJob;
+  };
 
-  }
+  console.log("searchedJob:", searchedJob);
 
   return (
     <a
@@ -50,20 +53,23 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
         <p className="mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white">
           £{searchedJob.minimumSalary} to £{searchedJob.maximumSalary}
         </p>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {searchedJob.jobDescription}
-        </p>
+        <Link href={`${searchedJob.jobUrl}`}>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            {searchedJob.jobDescription}
+          </p>
+        </Link>
         <p className="mb-3 font-bold text-gray-700 dark:text-gray-400">
           Apply by {searchedJob.expirationDate}
         </p>
-        
-        <button
-          className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue"
-          type="submit"
-          onClick={onSubmit}
-        >
-          Save to my jobs
-        </button>
+        <Link href="/myjobs">
+          <button
+            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46"
+            type="submit"
+            onClick={onSubmit}
+          >
+            Save to my jobs
+          </button>
+        </Link>
       </div>
     </a>
   );

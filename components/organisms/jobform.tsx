@@ -8,14 +8,14 @@ interface JobFormProps {
 const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
   return (
     <>
-      <div className=" flex flex-col bg-jaws-white p-4 md:p-8">
-        <div className="mb-4 md:flex md:justify-between md:space-x-4 md:mb-8">
-          <div className="flex items-center space-x-2 mb-2 md:mb-0">
+      <div className="  bg-jaws-white p-8 m-8 md:p-8">
+        <div className="flex flex-col mb-4 md:flex md:justify-between md:space-x-4 md:mb-8">
+          <div className="flex items-center space-x-2 m-5 mb-2 md:mb-0">
             <label
               htmlFor="email-address-icon"
               className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
             >
-              Company:
+              Company Name:
             </label>
             <TextInput
               placeholder=""
@@ -35,7 +35,7 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
             <Icon iconKind={IconKind.Close} onClick={handleToggleJobForm} />
           </div>
 
-          <div className="flex items-center space-x-2 mb-2 md:mb-0">
+          <div className="flex items-center space-x-2 m-5 mb-2 md:mb-0">
             <label
               htmlFor="message"
               className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
@@ -49,7 +49,7 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
             ></textarea>
           </div>
           <button
-            className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue"
+            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46"
             type="submit"
           >
             Submit

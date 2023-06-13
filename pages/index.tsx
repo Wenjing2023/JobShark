@@ -7,7 +7,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
 import { useState, useEffect } from 'react';
-import SearchResults from "./searchresults";
+
 
 
 
