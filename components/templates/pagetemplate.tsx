@@ -16,6 +16,8 @@ const PageTemplate: React.FC<Props> = ({ children }) => {
                     name="description"
                     content="A job search & tracker app for users"
                 />
+                <link rel="icon" href="/icon.png" sizes="any" />
+                
             </Head>
             <div className="flex flex-col min-h-screen">
                 <Banner />
