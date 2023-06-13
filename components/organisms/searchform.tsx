@@ -79,10 +79,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
           <CheckBox checkboxText="Work from home" />
         </div>
         <Link
-          href={{
-            pathname: "/searchresults",
-            query: state, // the data
-          }}
+          href={`/searchresults?jobTitleQuery=${state.jobTitleQuery}&locationNameQuery=${state.locationNameQuery}`}
         >
           <button
             className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue"
