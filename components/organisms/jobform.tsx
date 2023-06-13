@@ -48,12 +48,14 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
               placeholder="Leave a comment..."
             ></textarea>
           </div>
+          <div>
           <button
-            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46"
+            className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-20 px-1 py-2"
             type="submit"
           >
             Submit
           </button>
+          </div>
         </div>
       </div>
     </>
