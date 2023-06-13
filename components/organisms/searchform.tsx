@@ -78,7 +78,8 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
           href={`/searchresults?jobTitleQuery=${state.jobTitleQuery}&locationNameQuery=${state.locationNameQuery}`}
         >
           <button
-            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right"
+            className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue px-4 py-2 float-right"
+
             type="submit"
             onClick={handleToggleSearchForm}
           >

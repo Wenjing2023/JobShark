@@ -14,6 +14,8 @@ import IconKind from "../enums/iconkind";
 import SearchForm from "./searchform";
 import Link from "next/link";
 import JobForm from "./jobform";
+import Image from "next/image";
+
 
 const Banner = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +38,7 @@ const Banner = () => {
     };
 
     return (
+
         <header className=" w-full sticky top-0 justify-between items-center mb-7 h-10">
             <nav className="flex p-4 m-auto w-full sticky top-0  mb-7 items-center justify-center h-10">
                 {isSearchFormOpen && (
@@ -50,19 +53,18 @@ const Banner = () => {
                         <JobForm handleToggleJobForm={handleToggleJobForm} />
                     </div>
                 )}
-
+ 
                 <SideMenu isMenuOpen={isMenuOpen} />
+
                 <Icon iconKind={IconKind.Menu} onClick={handleToggleSideMenu} />
-                <TextInput
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block h-7 m-5 "
-                    placeholder="Search"
-                />
+
                 <Icon
                     iconKind={IconKind.Search}
                     onClick={handleToggleSearchForm}
                 />
                 <Icon iconKind={IconKind.Add} onClick={handleToggleJobForm} />
                 <Icon iconKind={IconKind.Logout} onClick={handleLogout} />
+                <Image src="/shark.png" alt="Shark" width={35} height={35} />
             </nav>
         </header>
     );
