@@ -53,6 +53,7 @@ const MyJobs = () => {
                         </pre>
                     </>
                 )}
+                <MyTabs />
             </PageTemplate>
         </>
     );
