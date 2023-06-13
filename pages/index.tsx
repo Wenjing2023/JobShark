@@ -17,6 +17,7 @@ const HomePage = () => {
 
   useEffect(() => {
     setIsLoggedIn(!!user);
+    console.log(user);
   }, [user]);
 
 
@@ -28,6 +29,7 @@ const HomePage = () => {
           <>
             <h3 className="text-center text-jaws-blue">
               Welcome to JobShark, {user?.name}
+              
             </h3>
           </>
         ) : (
