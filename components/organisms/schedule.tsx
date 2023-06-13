@@ -41,12 +41,12 @@ const Schedule: React.FC = () => {
         { title: 'Interview 2', description: 'Technical inteview', date: '01 July 2023'}
     ];
     const eventsDeadline: Event[] = [
-        { title:'Deadline 1', description: 'Deadline', date: '10 July 2023'}, 
-        { title: 'Deadline 2', description: 'Another deadline', date: '04 July 2023'}
+        { title:'Deadline 1', description: 'Deadline for this big fancy well paid job you want', date: '10 July 2023'}, 
+        { title: 'Deadline 2', description: 'Another deadline for a job that pays minimum wage, but you are desperate', date: '04 July 2023'}
     ];
     const eventsEvent: Event[] = [
-        { title:'Event 1', description: 'Networking', date: '05 July 2023'}, 
-        { title: 'Event 2', description: 'Party', date: '05 July 2023'}
+        { title:'Event 1', description: 'Networking event where you can schmooze with others and get some free booze', date: '05 July 2023'}, 
+        { title: 'Event 2', description: 'Party at the Chanter. Oh yeah.', date: '05 July 2023'}
     ];
     const eventsAll: Event[] = [...eventsInterview, ...eventsDeadline, ...eventsEvent]
 
@@ -54,10 +54,10 @@ const Schedule: React.FC = () => {
 return ( <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
         <Tab.Group>
       <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>All</Tab>
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>Interviews</Tab>
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>Deadlines</Tab>
-        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-blue-500 text-white':'text-blue-700')}>Events</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>All</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>Interviews</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>Deadlines</Tab>
+        <Tab className={({selected}) =>classNames("w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700", selected?'bg-jaws-blue text-white':'text-blue-700')}>Events</Tab>
 
       </Tab.List>
       <Tab.Panels className="mt-2">
