@@ -58,11 +58,10 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
 };
 
 const SearchResults: React.FC<SearchedJob> = ({}) => {
-  const [allJobs, setAllJobs] = useState<[]>([]);
+  const [allJobs, setAllJobs] = useState<SearchedJob[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const data = router.query;
-
   console.log("state in search result:", data);
 
   useEffect(() => {
@@ -77,6 +76,19 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
         setLoading(false);
       });
   }, []);
+
+  const searchResults = allJobs.filter((job) => {
+    if(data?.jobTitleQuery !== undefined && data?.locationNameQuery !== undefined){
+      return (
+        job.jobTitle.includes((data?.jobTitleQuery as string[])?.[0])  ||
+        job.locationName.includes((data?.locationNameQuery as string[])?.[0])
+      );
+    }
+  
+  });
+
+  console.log("searchResults: ", searchResults);
+  
 
   return (
     <PageTemplate>
@@ -97,14 +109,14 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
           <Tab.Panels className="mt-2">
             <Tab.Panel className="rounded-xl bg-white p-3">
               <>
-                {allJobs.length > 0 ? (
-                  allJobs.slice(0, 15).map((job, index) => (
+                {searchResults.length > 0 ? (
+                  searchResults.map((job, index) => (
                     <Fragment key={index}>
                       <SearchedJob searchedJob={job} />
                     </Fragment>
                   ))
                 ) : (
-                  <p>No jobs found</p>
+                  <p>Loading...</p>
                 )}
               </>
             </Tab.Panel>
