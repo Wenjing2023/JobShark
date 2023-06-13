@@ -8,40 +8,38 @@ import Icon from "../atoms/icon";
 import TextInput from "../atoms/textinput";
 import IconKind from "../enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
+import Link from "next/link";
 
 interface SearchFormProps {
   handleToggleSearchForm: () => void;
 }
 
 const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
-  // const [state, setState] = useState({
-  //   jobTitleQuery: "",
-  //   locationQuery: "",
-  //   list: [],
-  // });
+  const [state, setState] = useState({
+    jobTitleQuery: "",
+  });
 
-  // const handleSubmit = (e) => {
-  //   const results = allNews.filter((news) => {
-  //      if (e.target.value === "") return allNews;
-  //     return news.webTitle.toLowerCase().includes(e.target.value.toLowerCase());
-  //   });
-  //   setState({
-  //     query: e.target.value,
-  //     list: results,
-  //   });
-  // };
-  const [jobTitleQuery, SetJobTitleQuery] = useState("");
+  const onFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value: (typeof state)[keyof typeof state] = event.target.value;
+    setState({ ...state, [event.target.id]: value });
+  };
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+  console.log("state in search form",state);
 
   return (
     <div className="bg-jaws-white p-4 md:p-8">
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="mb-4 md:flex md:justify-between md:space-x-4 md:mb-8">
           <div className="flex items-center space-x-2 mb-2 md:mb-0">
             <input
               type="text"
               className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
               placeholder="Job title"
-              value={jobTitleQuery}
+              id="jobTitleQuery"
+              onChange={onFieldChange}
             />
             <Icon iconKind={IconKind.Search} onClick={() => {}} />
 
@@ -76,9 +74,22 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
         <div className="mb-4 md:mb-8">
           <CheckBox checkboxText="Work from home" />
         </div>
-        <Button buttonText="Submit" />
+        <Link
+          href="/searchresults"
+          as={`/${encodeURIComponent(state.jobTitleQuery)}`}
+          passHref
+        >
+          <button
+            className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue"
+            type="submit"
+            onClick={handleToggleSearchForm}
+          >
+            {" "}
+            submit{" "}
+          </button>
+        </Link>
       </form>
-      {/* <SearchResults  /> */}
+ 
     </div>
   );
 };
