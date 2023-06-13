@@ -20,18 +20,14 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
   });
 
   const onFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let value: (typeof state)[keyof typeof state] = event.target.value;
-    // if (event.target.type === "checkbox") {
-    //     value = event.target.checked;
-    // }
-
+    const value: (typeof state)[keyof typeof state] = event.target.value;
     setState({ ...state, [event.target.id]: value });
   };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("state in search form",state);
   };
+  console.log("state in search form",state);
 
   return (
     <div className="bg-jaws-white p-4 md:p-8">
@@ -42,7 +38,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
               type="text"
               className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
               placeholder="Job title"
-              id="jobTitle"
+              id="jobTitleQuery"
               onChange={onFieldChange}
             />
             <Icon iconKind={IconKind.Search} onClick={() => {}} />
