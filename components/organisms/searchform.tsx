@@ -1,11 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
-
-import SearchResults from "@/pages/searchresults";
-import Button from "../atoms/button";
 import CheckBox from "../atoms/checkbox";
 import Icon from "../atoms/icon";
-import TextInput from "../atoms/textinput";
 import IconKind from "../enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
 import Link from "next/link";
@@ -83,6 +79,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
         >
           <button
             className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue px-4 py-2 float-right"
+
             type="submit"
             onClick={handleToggleSearchForm}
           >
