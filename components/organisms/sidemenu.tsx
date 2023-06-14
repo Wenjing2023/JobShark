@@ -6,37 +6,56 @@ interface SideMenuProps {
 
 const SideMenu = ({ isMenuOpen }: SideMenuProps) => {
   return (
-    <div className=" ">
+    <div className="">
       <aside
-        className={`h-screen fixed  w-35  top-20 left-0 transition-transform  ${
-          isMenuOpen ? "translate-x-60" : "-translate-x-full"
+        className={`h-screen fixed w-35 top-16 left-0 transition-transform ${
+          isMenuOpen ? "translate-x-70" : "-translate-x-full"
         }`}
       >
-        <div className="hs-accordion-content w-full overflow-y-auto transition-[height] duration-300">
-          <ul className="pt-2 pl-2 space-y-2">
-            <li className="flex-1  gap-x-1 py-2 px-2.5  hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-jaws-blue rounded-md hover:bg-blue-900/20">
+        <div className="hs-accordion-content w-full overflow-y-auto transition-[height] duration-300 bg-jaws-blue px-20 py-3">
+          <ul className="py-1 px-6 flex flex-wrap lg:flex-col">
+            <li className="flex-1 gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-jaws-white rounded-md hover:bg-blue-900/20">
               <Link href="/">
-                <p className="flex-none text-sm font-bold">
-                  Home
-                </p>
+                <p className="flex text-sm font-bold">Home</p>
               </Link>
             </li>
-            <li className="flex-1  gap-x-3.5 py-2 px-2.5  hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent  text-jaws-blue  rounded-md hover:bg-blue-900/20">
+            <li className="flex-1 gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-jaws-white rounded-md hover:bg-blue-900/20">
               <Link href="/profile">
-                <p className=" text-sm font-bold ">Profile</p>
+                <p className="flex text-sm font-bold">Profile</p>
               </Link>
             </li>
-            <li className="flex-1  gap-x-3.5 py-2 px-2.5  hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent  text-jaws-blue  rounded-md hover:bg-blue-900/20">
+            <li className="flex-1 gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-jaws-white rounded-md hover:bg-blue-900/20">
               <Link href="/myjobs">
-                <p className="flex-none text-sm font-bold">Jobs</p>
+                <p className="flex text-sm font-bold">Jobs</p>
               </Link>
             </li>
           </ul>
         </div>
-      
       </aside>
-    </div>
+
+      <style jsx>{`
+        @media (min-width: 768px) {
+          div {
+            min-height: 100vh;
+          }
+
+          p { font-size: 1.2rem; 
+          }
+
+
+        }
+
+        @media (max-width: 767px) {
+          ul {
+            flex-direction: row;
+            flex-wrap: nowrap;
+          }
+        }
+      `}</style>
+      </div>
   );
 };
 
 export default SideMenu;
+
+
