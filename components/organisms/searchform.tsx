@@ -1,11 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
-
-import SearchResults from "@/pages/searchresults";
-import Button from "../atoms/button";
 import CheckBox from "../atoms/checkbox";
 import Icon from "../atoms/icon";
-import TextInput from "../atoms/textinput";
 import IconKind from "../enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
 import Link from "next/link";
@@ -15,8 +11,9 @@ interface SearchFormProps {
 }
 
 const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<any>({
     jobTitleQuery: "",
+    locationNameQuery: "",
   });
 
   const onFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +24,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
-  console.log("state in search form",state);
+  console.log("state in search form", state);
 
   return (
     <div className="bg-jaws-white p-4 md:p-8">
@@ -43,9 +40,12 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
             />
             <Icon iconKind={IconKind.Search} onClick={() => {}} />
 
-            <TextInput
+            <input
               className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
               placeholder="location"
+              type="text"
+              id="locationNameQuery"
+              onChange={onFieldChange}
             />
             <Icon iconKind={IconKind.Location} onClick={() => {}} />
             <Icon iconKind={IconKind.Close} onClick={handleToggleSearchForm} />
@@ -75,12 +75,11 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
           <CheckBox checkboxText="Work from home" />
         </div>
         <Link
-          href="/searchresults"
-          as={`/${encodeURIComponent(state.jobTitleQuery)}`}
-          passHref
+          href={`/searchresults?jobTitleQuery=${state.jobTitleQuery}&locationNameQuery=${state.locationNameQuery}`}
         >
           <button
-            className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue"
+            className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue px-4 py-2 float-right"
+
             type="submit"
             onClick={handleToggleSearchForm}
           >
@@ -89,7 +88,6 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
           </button>
         </Link>
       </form>
- 
     </div>
   );
 };

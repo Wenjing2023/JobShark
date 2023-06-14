@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { loadAllJobs } from "./api/reedapi";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type SearchedJob = {
   jobId: number;
@@ -27,6 +28,12 @@ interface SearchedJobProps {
 }
 
 const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
+  const onSubmit = () => {
+    return searchedJob;
+  };
+
+  console.log("searchedJob:", searchedJob);
+
   return (
     <a
       href="#"
@@ -46,23 +53,33 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
         <p className="mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white">
           £{searchedJob.minimumSalary} to £{searchedJob.maximumSalary}
         </p>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {searchedJob.jobDescription}
-        </p>
+        <Link href={`${searchedJob.jobUrl}`}>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            {searchedJob.jobDescription}
+          </p>
+        </Link>
         <p className="mb-3 font-bold text-gray-700 dark:text-gray-400">
           Apply by {searchedJob.expirationDate}
         </p>
+        <Link href="/myjobs">
+          <button
+            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46"
+            type="submit"
+            onClick={onSubmit}
+          >
+            Save to my jobs
+          </button>
+        </Link>
       </div>
     </a>
   );
 };
 
 const SearchResults: React.FC<SearchedJob> = ({}) => {
-  const [allJobs, setAllJobs] = useState<[]>([]);
+  const [allJobs, setAllJobs] = useState<SearchedJob[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const data = router.query;
-
   console.log("state in search result:", data);
 
   useEffect(() => {
@@ -77,6 +94,20 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
         setLoading(false);
       });
   }, []);
+
+  const searchResults = allJobs.filter((job) => {
+    if (
+      data?.jobTitleQuery !== undefined &&
+      data?.locationNameQuery !== undefined
+    ) {
+      return (
+        job.jobTitle.includes((data?.jobTitleQuery as string[])?.[0]) &&
+        job.locationName.includes((data?.locationNameQuery as string[])?.[0])
+      );
+    }
+  });
+
+  console.log("searchResults: ", searchResults);
 
   return (
     <PageTemplate>
@@ -97,14 +128,14 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
           <Tab.Panels className="mt-2">
             <Tab.Panel className="rounded-xl bg-white p-3">
               <>
-                {allJobs.length > 0 ? (
-                  allJobs.slice(0, 15).map((job, index) => (
+                {searchResults.length > 0 ? (
+                  searchResults.map((job, index) => (
                     <Fragment key={index}>
                       <SearchedJob searchedJob={job} />
                     </Fragment>
                   ))
                 ) : (
-                  <p>No jobs found</p>
+                  <p>Loading...</p>
                 )}
               </>
             </Tab.Panel>
