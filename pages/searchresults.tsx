@@ -107,11 +107,11 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
     }
   });
 
-  console.log("searchResults: ", searchResults);
+  // console.log("searchResults: ", searchResults);
 
   return (
     <PageTemplate>
-      <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
+      <div className="w-full max-w-md px-2 py-16 sm:px-0 ß">
         <Tab.Group>
           <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
             <Tab

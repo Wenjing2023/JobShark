@@ -24,7 +24,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
-  console.log("state in search form", state);
+  // console.log("state in search form", state);
 
   return (
     <div className="bg-jaws-white p-4 md:p-8">
@@ -37,6 +37,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
               placeholder="Job title"
               id="jobTitleQuery"
               onChange={onFieldChange}
+              required
             />
             <Icon iconKind={IconKind.Search} onClick={() => {}} />
 
@@ -46,6 +47,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
               type="text"
               id="locationNameQuery"
               onChange={onFieldChange}
+              required
             />
             <Icon iconKind={IconKind.Location} onClick={() => {}} />
             <Icon iconKind={IconKind.Close} onClick={handleToggleSearchForm} />
