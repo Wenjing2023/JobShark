@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import Icon from "../atoms/icon";
-import IconKind from "../enums/iconkind";
+import IconKind from "../types/enums/iconkind";
 
 interface MenuSelectProps {
   labelText: string;
