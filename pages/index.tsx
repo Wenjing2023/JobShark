@@ -2,7 +2,6 @@
 import * as React from "react";
 import PageTemplate from "../components/templates/pagetemplate";
 import Schedule from "../components/organisms/schedule";
-import dynamic from "next/dynamic";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
@@ -22,19 +21,16 @@ const HomePage = () => {
         hideDivRef.current.style.opacity = "0";
         hideDivRef.current.style.transition = "opacity 1.5s";
       }
-    }, 2000);
+    }, 1500);
     return () => clearTimeout(timeoutId);
   }, [user]);
 
-const hideText=()=>{
-
-}
   
   return (
     <>
       <PageTemplate>
         {isLoggedIn ? (
-            <h3 className="text-center text-jaws-blue font-bold" ref={hideDivRef} mx-auto >
+            <h3 className="text-center text-jaws-blue font-bold" ref={hideDivRef}  >
               Welcome to JobShark, {user?.name} 
             </h3>
         ) : (
