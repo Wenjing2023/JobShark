@@ -1,15 +1,22 @@
 import { FormEvent, useState } from "react";
 import Icon from "../atoms/icon";
 import IconKind from "../types/enums/iconkind";
+import TextInput from "../atoms/textinput";
+import Button from "../atoms/button";
+import Job from "../types/job";
+import { UserProfile } from "@auth0/nextjs-auth0/client";
+import postApi from "@/services/postApi";
+import getApi from "@/services/getApi";
 
 interface JobFormProps {
   handleToggleJobForm: () => void;
+  user: UserProfile | undefined; 
 }
 
-const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
+const JobForm = ({ handleToggleJobForm, user }: JobFormProps) => {
   const [state, setState] = useState<any>({
-    companyname: "",
-    jobtitle: "",
+    employer_name: "",
+    job_title: "",
     notes: "",
   });
 
@@ -18,10 +25,33 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
     setState({ ...state, [event.target.id]: value });
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    console.log(user)
+    const { response } = await getApi("api/my/getuser", {headers:{sub:user?.sub}})
+
+    console.log("response", response)
+
+    if(user?.sub){
+        const jobToPost:Job = {
+            user: {
+                id: response.id,
+            },
+            jobTitle: state.job_title,
+            employerName: state.employer_name,
+            notes: state.notes,
+        }
+
+        const jsonToPost = JSON.stringify(jobToPost);
+
+        console.log("jobToPost: ",jobToPost)
+
+        postApi("api/my/createjob", { body: jsonToPost })
+    }
+
   };
-  // console.log("state in jobform", state);
+//   console.log("state in jobform", state);
   return (
     <>
       <div className="  bg-jaws-white p-8 m-8 md:p-8">
@@ -36,10 +66,9 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
             >
               Company Name:
             </label>
-            <input
-              id="companyname"
+            <TextInput
+              id="employer_name"
               onChange={onFieldChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
             <label
               htmlFor="email-address-icon"
@@ -47,10 +76,9 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
             >
               Job Title:
             </label>
-            <input
-              id="jobtitle"
+            <TextInput
+              id="job_title"
               onChange={onFieldChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
 
             <Icon iconKind={IconKind.Close} onClick={handleToggleJobForm} />
@@ -63,19 +91,17 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
             >
               Notes:
             </label>
-            <input
+            <TextInput
               id="notes"
               onChange={onFieldChange}
-              className=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
           <div>
-            <button
+            <Button
               className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-20 px-1 py-2"
               type="submit"
-            >
-              Submit
-            </button>
+              buttonText="Submit"
+            />
           </div>
         </form>
       </div>
