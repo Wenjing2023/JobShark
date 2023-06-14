@@ -40,7 +40,7 @@ const MyJobs = () => {
         console.log("myjobs.tsx: useEffect[user]")
         const fetchData = async () => {
             const { response , error, isLoading } = await getApi("api/my/getuser", {
-                headers: { sid: user?.sid },
+                headers: { sub: user?.sub },
             });
             setResponse(response);
         };
