@@ -4,9 +4,9 @@ export default withApiAuthRequired(async function get(req, res) {
     try {
         const { accessToken } = await getAccessToken(req, res);
 
-        const sid = req.headers.sid;
+        const sub = req.headers.sub;
 
-        const response = await fetch(process.env.BACKEND_BASE_URL+"users/"+sid, {
+        const response = await fetch(process.env.BACKEND_BASE_URL+"users/"+sub, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },

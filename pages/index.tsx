@@ -15,20 +15,24 @@ const HomePage = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [response, setResponse] = useState(null);
 
-    const hideDivRef = useRef<HTMLDivElement>(null);
-    console.log(user);
+    // const hideDivRef = useRef<HTMLDivElement>(null);
+    console.log("user", user);
 
     useEffect(() => {
         console.log("index.tsx: useEffect[user]");
         const fetchData = async () => {
             const { response } = await getApi("api/my/getuser", {
-                headers: { sid: user?.sid },
+                headers: { sub: user?.sub },
             });
             setResponse(response);
         };
 
         setIsLoggedIn(!!user);
-        fetchData();
+        if(user) {
+            console.log("fetching user")
+            fetchData();
+        }
+        
 
         // const timeoutId = setTimeout(() => {
         //     if (hideDivRef.current) {
@@ -44,16 +48,16 @@ const HomePage = () => {
         if (!response && user) {
             console.log("in if");
             const userToPost = JSON.stringify({
-                sid: user?.sid,
+                sub: user?.sub,
                 email: user?.email,
                 display_name: user?.name,
                 location: null,
                 industry: null,
             });
-
+            console.log("userToPost", userToPost)
             postApi("api/my/createuser", { body: userToPost });
         } else {
-            console.log(response);
+            console.log("response", response);
         }
     }, [response]);
 
