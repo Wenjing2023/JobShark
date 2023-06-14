@@ -34,16 +34,7 @@ const MyJobs = () => {
                 {isLoading && <p>Loading Jobs...</p>}
 
                 { response && (
-                    <>
-                        <p>My Jobs:</p>
-                        <pre>
-                            {response.length > 0 && JSON.stringify(
-                                response.map((job: Job) => job),
-                                null,
-                                2
-                            )}
-                        </pre>
-                    </>
+                    <MyTabs allJobs={response}/>
                 )}
 
                 {error && (
@@ -56,7 +47,7 @@ const MyJobs = () => {
                 )}
 
 
-                <MyTabs allJobs={response}/>
+                
             </PageTemplate>
         </>
     );
