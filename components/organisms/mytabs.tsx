@@ -58,26 +58,26 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
 const MyTabs: React.FC<MyTabsProps> = ({allJobs}) => {
 
 
-    const jobListToApply: Job[] = [
-        { id: 1, jobTitle: 'Instructor', employerName: 'CodeClan', location: 'Edinburgh', minSalary: 30000, maxSalary: 40000, jobDescription: 'Fantastic tutor required', date: '30 July 2023', jobUrl: 'www.codeclan.com', applications: '73'},
-        { id: 2, jobTitle: 'Technical Assistant', employerName: 'CodeClan', location: 'Glasgow', minSalary: 25000, maxSalary: 35000, jobDescription: 'Supporing students', date: '01 August 2023', jobUrl: 'www.codeclan.com', applications: '79'}
+    // const jobListToApply: Job[] = [
+    //     { id: 1, jobTitle: 'Instructor', employerName: 'CodeClan', location: 'Edinburgh', minSalary: 30000, maxSalary: 40000, jobDescription: 'Fantastic tutor required', date: '30 July 2023', jobUrl: 'www.codeclan.com', applications: '73'},
+    //     { id: 2, jobTitle: 'Technical Assistant', employerName: 'CodeClan', location: 'Glasgow', minSalary: 25000, maxSalary: 35000, jobDescription: 'Supporing students', date: '01 August 2023', jobUrl: 'www.codeclan.com', applications: '79'}
     
-    ];
+    // ];
 
-    const jobListApplied: Job[] = [
-        { id: 3, jobTitle: 'FrontEnd Developer', employerName: 'SkyScanner', location: 'Edinburgh', minSalary: 30000, maxSalary: 40000, jobDescription: 'Front End Developer', expirationDate: new Date(2023-08-31), reedUrl: 'www.codeclan.com', applications: '72'},
-        { id: 4, jobTitle: 'BackEnd Developer', employerName: 'SkyScanner', location: 'Glasgow', minSalary: 35000, maxSalary: 45000, jobDescription: 'Back End Developer', expirationDate: '09 August 2023', reedUrl: 'www.codeclan.com', applications: '109'}
-    ];
+    // const jobListApplied: Job[] = [
+    //     { id: 3, jobTitle: 'FrontEnd Developer', employerName: 'SkyScanner', location: 'Edinburgh', minSalary: 30000, maxSalary: 40000, jobDescription: 'Front End Developer', expirationDate: new Date(2023-08-31), reedUrl: 'www.codeclan.com', applications: '72'},
+    //     { id: 4, jobTitle: 'BackEnd Developer', employerName: 'SkyScanner', location: 'Glasgow', minSalary: 35000, maxSalary: 45000, jobDescription: 'Back End Developer', expirationDate: '09 August 2023', reedUrl: 'www.codeclan.com', applications: '109'}
+    // ];
 
 
-    const jobListInterview: Job[] = [
-        { id: 5, jobTitle: 'FrontEnd Developer', employerName: 'X-Design', location: 'Edinburgh', minSalary: 30000, maxSalary: 40000, jobDescription: 'Front End Developer', date: '31 August 2023', jobUrl: 'www.codeclan.com', applications: '72'},
-        { id: 6, jobTitle: 'UX Designer', employerName: 'X-Design', location: 'Glasgow', minSalary: 35000, maxSalary: 45000, jobDescription: 'Back End Developer', date: '09 August 2023', jobUrl: 'www.codeclan.com', applications: '109'}
-    ];
+    // const jobListInterview: Job[] = [
+    //     { id: 5, jobTitle: 'FrontEnd Developer', employerName: 'X-Design', location: 'Edinburgh', minSalary: 30000, maxSalary: 40000, jobDescription: 'Front End Developer', date: '31 August 2023', jobUrl: 'www.codeclan.com', applications: '72'},
+    //     { id: 6, jobTitle: 'UX Designer', employerName: 'X-Design', location: 'Glasgow', minSalary: 35000, maxSalary: 45000, jobDescription: 'Back End Developer', date: '09 August 2023', jobUrl: 'www.codeclan.com', applications: '109'}
+    // ];
 
-    const jobListResult: Job[] = [
-        { id: 7,jobTitle: 'CEO', employerName: 'Google', location: 'San Francisco', minSalary: 3000000, maxSalary: 100000000, jobDescription: 'Front End Developer', date: '31 October 2023', jobUrl: 'www.google.com', applications: '23472'},
-    ];
+    // const jobListResult: Job[] = [
+    //     { id: 7,jobTitle: 'CEO', employerName: 'Google', location: 'San Francisco', minSalary: 3000000, maxSalary: 100000000, jobDescription: 'Front End Developer', date: '31 October 2023', jobUrl: 'www.google.com', applications: '23472'},
+    // ];
 
 
     return ( <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
@@ -99,7 +99,7 @@ const MyTabs: React.FC<MyTabsProps> = ({allJobs}) => {
                 ))}
             </ul>
         </Tab.Panel>
-        <Tab.Panel className="rounded-xl bg-white p-3">
+        {/* <Tab.Panel className="rounded-xl bg-white p-3">
         <ul>
                 {jobListApplied.map((job, index) => (
                     <Fragment key={index}>
@@ -125,8 +125,8 @@ const MyTabs: React.FC<MyTabsProps> = ({allJobs}) => {
                     <Fragment key={index}>
                             <JobCard job={job} />
                     </Fragment>
-                ))}
-            </ul></Tab.Panel>
+                ))} */}
+            {/* </ul></Tab.Panel> */}
 
       </Tab.Panels>
     </Tab.Group>
