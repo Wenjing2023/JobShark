@@ -32,7 +32,7 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
     return searchedJob;
   };
 
-  console.log("searchedJob:", searchedJob);
+  // console.log("searchedJob:", searchedJob);
 
   return (
     <a
@@ -63,7 +63,7 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
         </p>
         <Link href="/myjobs">
           <button
-            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46"
+            className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46 px-3 py-1"
             type="submit"
             onClick={onSubmit}
           >
@@ -107,18 +107,18 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
     }
   });
 
-  console.log("searchResults: ", searchResults);
+  // console.log("searchResults: ", searchResults);
 
   return (
     <PageTemplate>
-      <div className="w-full max-w-md px-2 py-16 sm:px-0 mx-auto">
+      <div className="w-full max-w-md px-2 py-16 sm:px-0 ß">
         <Tab.Group>
           <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
             <Tab
               className={({ selected }) =>
                 classNames(
                   "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700",
-                  selected ? "bg-blue-500 text-white" : "text-blue-700"
+                  selected ? "bg-jaws-blue text-white" : "text-blue-700"
                 )
               }
             >
