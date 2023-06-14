@@ -1,7 +1,7 @@
 import PageTemplate from "@/components/templates/pagetemplate";
 import MyTabs from "@/components/organisms/mytabs";
 import Title from "@/components/atoms/title";
-import useApi from "@/services/useApi";
+import getApi from "@/services/getApi";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import * as React from 'react';
 import { useState, useEffect } from 'react';
@@ -39,7 +39,7 @@ const MyJobs = () => {
     useEffect(() => {
         console.log("myjobs.tsx: useEffect[user]")
         const fetchData = async () => {
-            const { response , error, isLoading } = await useApi("api/my/getuser", {
+            const { response , error, isLoading } = await getApi("api/my/getuser", {
                 headers: { sid: user?.sid },
             });
             setResponse(response);

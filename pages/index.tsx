@@ -7,7 +7,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Title from "@/components/atoms/title";
 import { useState, useEffect, useRef } from "react";
 import SearchResults from "./searchresults";
-import useApi from "@/services/useApi";
+import getApi from "@/services/getApi";
 import postApi from "@/services/postApi";
 
 const HomePage = () => {
@@ -21,7 +21,7 @@ const HomePage = () => {
     useEffect(() => {
         console.log("index.tsx: useEffect[user]");
         const fetchData = async () => {
-            const { response } = await useApi("api/my/getuser", {
+            const { response } = await getApi("api/my/getuser", {
                 headers: { sid: user?.sid },
             });
             setResponse(response);

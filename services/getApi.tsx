@@ -11,7 +11,7 @@ function initialState(args: {
     };
 }
 
-const useApi = async (
+const getApi = async (
     url: RequestInfo,
     options = {}
 ): Promise<{
@@ -49,4 +49,4 @@ const useApi = async (
     return data;
 };
 
-export default useApi;
+export default getApi;
