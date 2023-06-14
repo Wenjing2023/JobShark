@@ -1,4 +1,4 @@
-import IconKind from "../enums/iconkind";
+import IconKind from "../types/enums/iconkind";
 
 const MAGNIFYING_ICON = (
   <svg
