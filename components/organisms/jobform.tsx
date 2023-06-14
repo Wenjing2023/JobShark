@@ -1,12 +1,8 @@
 import { FormEvent, useState } from "react";
 import Icon from "../atoms/icon";
-<<<<<<< HEAD
-import IconKind from "../enums/iconkind";
+import IconKind from "../types/enums/iconkind";
 import TextInput from "../atoms/textinput";
 import Button from "../atoms/button";
-=======
-import IconKind from "../types/enums/iconkind";
->>>>>>> main
 
 interface JobFormProps {
   handleToggleJobForm: () => void;
@@ -26,6 +22,7 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
   };
   console.log("state in jobform", state);
   return (
