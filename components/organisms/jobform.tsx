@@ -21,7 +21,7 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
-  console.log("state in jobform", state);
+  // console.log("state in jobform", state);
   return (
     <>
       <div className="  bg-jaws-white p-8 m-8 md:p-8">

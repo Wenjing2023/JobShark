@@ -32,7 +32,7 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
     return searchedJob;
   };
 
-  console.log("searchedJob:", searchedJob);
+  // console.log("searchedJob:", searchedJob);
 
   return (
     <a
@@ -63,7 +63,7 @@ const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob }) => {
         </p>
         <Link href="/myjobs">
           <button
-            className="bg-black text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46"
+            className="bg-jaws-blue text-jaws-white font-xs rounded-lg hover:bg-jaws-light-blue float-right m-5 w-46 px-3 py-1"
             type="submit"
             onClick={onSubmit}
           >
@@ -118,7 +118,7 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
               className={({ selected }) =>
                 classNames(
                   "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700",
-                  selected ? "bg-blue-500 text-white" : "text-blue-700"
+                  selected ? "bg-jaws-blue text-white" : "text-blue-700"
                 )
               }
             >
