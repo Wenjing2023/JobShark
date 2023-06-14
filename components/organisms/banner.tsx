@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Icon from "../atoms/icon";
 import SideMenu from "./sidemenu";
-import IconKind from "../enums/iconkind";
+import IconKind from "../types/enums/iconkind";
 import SearchForm from "./searchform";
 import Link from "next/link";
 import JobForm from "./jobform";

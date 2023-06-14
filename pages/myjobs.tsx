@@ -5,29 +5,7 @@ import getApi from "@/services/getApi";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-
-
-type Job = { 
-    reedId: Number,
-    userId: Number,
-    id: Number,
-    jobTitle: String,
-    employerName: String,
-    location: String,
-    expirationDate: Date,
-    jobDescription: String,
-    minSalary: Number,
-    maxSalary: Number,
-    notes: String,
-    reedUrl: String,
-    externalUrl: String,
-    partTime: Boolean,
-    fullTime: Boolean,
-    contractType: String,
-    applicationCount: Number,
-    applicationStage: Number,
-    rejected: Boolean
-};
+import Job from "@/components/types/job";
 
 const MyJobs = () => {
     const { user } = useUser();

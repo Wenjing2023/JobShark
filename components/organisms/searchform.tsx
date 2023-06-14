@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import CheckBox from "../atoms/checkbox";
 import Icon from "../atoms/icon";
-import IconKind from "../enums/iconkind";
+import IconKind from "../types/enums/iconkind";
 import MenuSelect from "../molecules/menuselect";
 import Link from "next/link";
 

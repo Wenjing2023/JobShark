@@ -1,8 +1,12 @@
 import { FormEvent, useState } from "react";
 import Icon from "../atoms/icon";
+<<<<<<< HEAD
 import IconKind from "../enums/iconkind";
 import TextInput from "../atoms/textinput";
 import Button from "../atoms/button";
+=======
+import IconKind from "../types/enums/iconkind";
+>>>>>>> main
 
 interface JobFormProps {
   handleToggleJobForm: () => void;
