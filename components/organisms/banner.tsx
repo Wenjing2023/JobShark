@@ -41,7 +41,7 @@ const Banner = ({ user }: BannerProps) => {
         <header className=" w-full sticky top-3 justify-between items-center mb-7 h-10">
             <nav className="flex p-4 m-auto w-full sticky top-0  mb-7 items-center justify-center h-10">
                 {isSearchFormOpen && (
-                    <div className="fixed inset-0 bg-gray-800 bg-opacity-80 flex items-center justify-center z-20">
+                    <div className="fixed inset-0 bg-gray-800 bg-opacity-80 m-auto">
                         <SearchForm
                             handleToggleSearchForm={handleToggleSearchForm}
                         />
