@@ -1,5 +1,3 @@
-import * as React from "react";
-
 function initialState(args: {
     error?: any;
     isLoading?: boolean;
@@ -13,52 +11,42 @@ function initialState(args: {
     };
 }
 
-const useApi = (
+const useApi = async (
     url: RequestInfo,
     options = {}
-): {
+): Promise<{
     error: unknown;
     isLoading: boolean;
     response: any;
-} => {
-    const [state, setState] = React.useState(() => initialState({}));
+}> => {
+    const fetchData = async () => {
+        try {
+            const res = await fetch(url, {
+                ...options,
+            });
 
-    React.useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch(url, {
-                    ...options,
+            if (res.status >= 400) {
+                return initialState({
+                    error: await res.json(),
+                    isLoading: false,
                 });
-
-                if (res.status >= 400) {
-                    setState(
-                        initialState({
-                            error: await res.json(),
-                            isLoading: false,
-                        })
-                    );
-                } else {
-                    setState(
-                        initialState({
-                            response: await res.json(),
-                            isLoading: false,
-                        })
-                    );
-                }
-            } catch (error: any) {
-                setState(
-                    initialState({
-                        error: {
-                            error: error.message,
-                        },
-                        isLoading: false,
-                    })
-                );
+            } else {
+                return initialState({
+                    response: await res.json(),
+                    isLoading: false,
+                });
             }
-        };
-        fetchData();
-    }, []);
-    return state;
+        } catch (error: any) {
+            return initialState({
+                error: {
+                    error: error.message,
+                },
+                isLoading: false,
+            });
+        }
+    };
+    const data = await fetchData();
+    return data;
 };
 
 export default useApi;
