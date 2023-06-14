@@ -3,12 +3,17 @@ import Icon from "../atoms/icon";
 import IconKind from "../types/enums/iconkind";
 import TextInput from "../atoms/textinput";
 import Button from "../atoms/button";
+import Job from "../types/job";
+import { UserProfile } from "@auth0/nextjs-auth0/client";
+import postApi from "@/services/postApi";
+import getApi from "@/services/getApi";
 
 interface JobFormProps {
   handleToggleJobForm: () => void;
+  user: UserProfile | undefined; 
 }
 
-const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
+const JobForm = ({ handleToggleJobForm, user }: JobFormProps) => {
   const [state, setState] = useState<any>({
     employer_name: "",
     job_title: "",
@@ -20,11 +25,33 @@ const JobForm = ({ handleToggleJobForm }: JobFormProps) => {
     setState({ ...state, [event.target.id]: value });
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    console.log(user)
+    const { response } = await getApi("api/my/getuser", {headers:{sub:user?.sub}})
+
+    console.log("response", response)
+
+    if(user?.sub){
+        const jobToPost:Job = {
+            user: {
+                id: response.id,
+            },
+            jobTitle: state.job_title,
+            employerName: state.employer_name,
+            notes: state.notes,
+        }
+
+        const jsonToPost = JSON.stringify(jobToPost);
+
+        console.log("jobToPost: ",jobToPost)
+
+        postApi("api/my/createjob", { body: jsonToPost })
+    }
+
   };
-  console.log("state in jobform", state);
+//   console.log("state in jobform", state);
   return (
     <>
       <div className="  bg-jaws-white p-8 m-8 md:p-8">

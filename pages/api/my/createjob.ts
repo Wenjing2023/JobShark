@@ -1,6 +1,6 @@
 import { withApiAuthRequired, getAccessToken } from "@auth0/nextjs-auth0";
 
-export default withApiAuthRequired(async function createUser(req, res) {
+export default withApiAuthRequired(async function createJob(req, res) {
     try {
         const { accessToken } = await getAccessToken(req, res);
 

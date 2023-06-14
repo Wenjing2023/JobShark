@@ -50,7 +50,7 @@ const HomePage = () => {
             const userToPost = JSON.stringify({
                 sub: user?.sub,
                 email: user?.email,
-                display_name: user?.name,
+                displayName: user?.name,
                 location: null,
                 industry: null,
             });

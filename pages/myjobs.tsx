@@ -10,7 +10,7 @@ import Job from "@/components/types/job";
 const MyJobs = () => {
     const { user } = useUser();
 
-    const [response, setResponse] = useState<Job[] | null>(null);
+    const [response, setResponse] = useState<Job[] | []>([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     
@@ -20,7 +20,8 @@ const MyJobs = () => {
             const { response , error, isLoading } = await getApi("api/my/getuser", {
                 headers: { sub: user?.sub },
             });
-            setResponse(response);
+            console.log("user_response: ", response)
+            setResponse(response ? response.jobs : []);
         };
 
         fetchData();
@@ -55,7 +56,7 @@ const MyJobs = () => {
                 )}
 
 
-                <MyTabs />
+                <MyTabs allJobs={response}/>
             </PageTemplate>
         </>
     );
