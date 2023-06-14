@@ -1,7 +1,11 @@
 import PageTemplate from "@/components/templates/pagetemplate";
 import MyTabs from "@/components/organisms/mytabs";
 import Title from "@/components/atoms/title";
-import useApi from "@/services/useApi";
+import getApi from "@/services/getApi";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+
 
 type Job = { 
     reedId: Number,
@@ -26,7 +30,23 @@ type Job = {
 };
 
 const MyJobs = () => {
-    const { response, error, isLoading } = useApi("api/my/myjobs");
+    const { user } = useUser();
+
+    const [response, setResponse] = useState<Job[] | null>(null);
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(null);
+    
+    useEffect(() => {
+        console.log("myjobs.tsx: useEffect[user]")
+        const fetchData = async () => {
+            const { response , error, isLoading } = await getApi("api/my/getuser", {
+                headers: { sid: user?.sid },
+            });
+            setResponse(response);
+        };
+
+        fetchData();
+    }, [user]);
     return (
         <>
             <PageTemplate>
@@ -34,11 +54,11 @@ const MyJobs = () => {
 
                 {isLoading && <p>Loading Jobs...</p>}
 
-                {response && (
+                { response && (
                     <>
                         <p>My Jobs:</p>
                         <pre>
-                            {JSON.stringify(
+                            {response.length > 0 && JSON.stringify(
                                 response.map((job: Job) => job),
                                 null,
                                 2
