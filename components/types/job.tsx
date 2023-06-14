@@ -5,7 +5,7 @@ type Job = {
     jobTitle: string,
     employerName: string,
     location?: string,
-    expirationDate?: Date,
+    expirationDate?: string,
     jobDescription?: string,
     minSalary?: number,
     maxSalary?: number,
