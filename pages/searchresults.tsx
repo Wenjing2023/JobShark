@@ -3,7 +3,7 @@ import { Tab } from "@headlessui/react";
 import classNames from "classnames";
 import { Fragment } from "react";
 import { useState, useEffect } from "react";
-import { loadAllJobs } from "./api/reedapi";
+import { loadAllJobs } from "../services/reedapi";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { UserProfile, useUser } from "@auth0/nextjs-auth0/client";
@@ -35,7 +35,7 @@ interface SearchedJobProps {
 
 const SearchedJob: React.FC<SearchedJobProps> = ({ searchedJob, user }) => {
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
+        event.preventDefault();
         console.log(user);
         const { response } = await getApi("api/my/getuser", {
             headers: { sub: user?.sub },
@@ -126,7 +126,7 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
     console.log("state in search result:", data);
 
     useEffect(() => {
-        loadAllJobs()
+        loadAllJobs(data)
             .then((data) => {
                 console.log(data);
                 setAllJobs(data.results);
@@ -137,22 +137,6 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
                 setLoading(false);
             });
     }, []);
-
-    const searchResults = allJobs.filter((job) => {
-        if (
-            data?.jobTitleQuery !== undefined &&
-            data?.locationNameQuery !== undefined
-        ) {
-            return (
-                job.jobTitle.includes((data?.jobTitleQuery as string[])?.[0]) &&
-                job.locationName.includes(
-                    (data?.locationNameQuery as string[])?.[0]
-                )
-            );
-        }
-    });
-
-    // console.log("searchResults: ", searchResults);
 
     return (
         <PageTemplate>
@@ -175,8 +159,8 @@ const SearchResults: React.FC<SearchedJob> = ({}) => {
                     <Tab.Panels className="mt-2">
                         <Tab.Panel className="rounded-xl bg-white p-3">
                             <>
-                                {searchResults.length > 0 ? (
-                                    searchResults.map((job, index) => (
+                                {!loading ? (
+                                    allJobs.map((job, index) => (
                                         <Fragment key={index}>
                                             <SearchedJob
                                                 searchedJob={job}

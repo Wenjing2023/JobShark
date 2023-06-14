@@ -12,8 +12,8 @@ interface SearchFormProps {
 
 const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
   const [state, setState] = useState<any>({
-    jobTitleQuery: "",
-    locationNameQuery: "",
+    keywords: "",
+    locationName: "",
   });
 
   const onFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
               type="text"
               className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
               placeholder="Job title"
-              id="jobTitleQuery"
+              id="keywords"
               onChange={onFieldChange}
               required
             />
@@ -45,7 +45,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
               className="flex-grow outline-none bg-white rounded-lg p-2 text-jaws-black focus:outline focus:outline-jaws-blue"
               placeholder="location"
               type="text"
-              id="locationNameQuery"
+              id="locationName"
               onChange={onFieldChange}
               required
             />
@@ -56,20 +56,17 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8 mb-4 md:mb-8">
           <MenuSelect
-            labelText="Job type:"
-            options={["full-time", "part-time", "temporary", "permanent"]}
+            labelText="Full-time/part-time"
+            options={["full-time", "part-time"]}
           />
           <MenuSelect
-            labelText="Date posted:"
+            labelText="Permanent/Contract/Temp"
             options={[
-              "Last 24 hours",
-              "Last 3 days",
-              "Last 7 days",
-              "Last 14 days",
+                "permanent", "temporary", "contract"
             ]}
           />
           <MenuSelect
-            labelText="Salary estimated from:"
+            labelText="Minimum Salary:"
             options={["£20,000", "£30,000", "£40,000", "£50,000"]}
           />
         </div>
@@ -77,7 +74,7 @@ const SearchForm = ({ handleToggleSearchForm }: SearchFormProps) => {
           <CheckBox checkboxText="Work from home" />
         </div>
         <Link
-          href={`/searchresults?jobTitleQuery=${state.jobTitleQuery}&locationNameQuery=${state.locationNameQuery}`}
+          href={`/searchresults?keywords=${state.keywords}&locationName=${state.locationName}`}
         >
           <button
             className="bg-jaws-blue text-jaws-white rounded-lg hover:bg-jaws-light-blue px-4 py-2 float-right"
