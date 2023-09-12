@@ -37,3 +37,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 >>>>>>> cac6589 (Initial commit from Create Next App)
 # JobShark
+
+
+
+https://github.com/Wenjing2023/JobShark/assets/126068755/44af4b7c-21e6-4afb-9f5c-1ebde1c572c6
+
+
